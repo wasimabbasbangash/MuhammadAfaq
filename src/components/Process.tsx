@@ -150,6 +150,7 @@ export default function Process() {
               Ready to Start Your Journey?
             </h3>
             <p className="text-desert-sand mb-6 max-w-2xl mx-auto">
+              // /* eslint-disable-next-line react/no-unescaped-entities */
               Let's discuss your Dubai property goals and create a personalized
               plan for success.
             </p>
