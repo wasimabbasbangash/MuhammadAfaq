@@ -177,6 +177,7 @@ export default function Testimonials() {
 
                 {/* Quote */}
                 <blockquote className="text-platinum/80 mb-10 leading-relaxed text-lg font-light">
+                  // /* eslint-disable-next-line react/no-unescaped-entities */
                   "{testimonial.quote}"
                 </blockquote>
 
