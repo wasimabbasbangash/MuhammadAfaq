@@ -234,6 +234,7 @@ export default function Testimonials() {
                 viewport={{ once: true }}
                 className="text-3xl md:text-4xl font-black mb-16 text-pure-white"
               >
+                // /* eslint-disable-next-line react/no-unescaped-entities */
                 Trusted by Dubai's Property Seekers
               </motion.h3>
 
