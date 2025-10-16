@@ -178,7 +178,7 @@ export default function Testimonials() {
                 {/* Quote */}
                 <blockquote className="text-platinum/80 mb-10 leading-relaxed text-lg font-light">
                   // /* eslint-disable-next-line react/no-unescaped-entities */
-                  "{testimonial.quote}"
+                  {&ldquo;testimonial.quote&ldquo;}
                 </blockquote>
 
                 {/* Author */}
@@ -236,7 +236,7 @@ export default function Testimonials() {
                 className="text-3xl md:text-4xl font-black mb-16 text-pure-white"
               >
                 // /* eslint-disable-next-line react/no-unescaped-entities */
-                Trusted by Dubai's Property Seekers
+                Trusted by Dubai&apos;s Property Seekers
               </motion.h3>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
