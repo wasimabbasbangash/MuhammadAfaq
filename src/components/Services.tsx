@@ -147,7 +147,8 @@ export default function Services() {
             viewport={{ once: true }}
             className="text-xl md:text-2xl text-platinum/90 max-w-4xl mx-auto leading-relaxed font-light"
           >
-            From curated shortlists to seamless transactions — every step of your Dubai property journey, elevated.
+            From curated shortlists to seamless transactions — every step of
+            your Dubai property journey, elevated.
           </motion.p>
         </motion.div>
 

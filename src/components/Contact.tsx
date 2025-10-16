@@ -104,7 +104,7 @@ export default function Contact() {
         // Open WhatsApp with prefilled message
         const whatsappMessage = `Hi Afaq, I just submitted the contact form. My name is ${
           formData.name
-        } and I'm interested in ${formData.interest}${
+        } and I&apos;m interested in ${formData.interest}${
           formData.area ? ` in ${formData.area}` : ""
         }.`;
         window.open(
@@ -139,11 +139,11 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-deep-navy mb-4">
-            Let's Find Your Place in Dubai
+            Let&apos;s Find Your Place in Dubai
           </h2>
           <p className="text-xl text-deep-navy/70 max-w-3xl mx-auto">
-            Message me on WhatsApp or send an email — I'll reply promptly with
-            tailored property options.
+            Message me on WhatsApp or send an email — I&apos;ll reply promptly
+            with tailored property options.
           </p>
         </motion.div>
 
@@ -347,7 +347,7 @@ export default function Contact() {
                       htmlFor="interest"
                       className="block text-sm font-medium text-deep-navy mb-2"
                     >
-                      I'm Looking to *
+                      I&apos;m Looking to *
                     </label>
                     <select
                       id="interest"
@@ -490,11 +490,12 @@ export default function Contact() {
                   <CheckCircle className="h-8 w-8 text-whatsapp-green" />
                 </div>
                 <h3 className="text-2xl font-heading font-semibold text-deep-navy mb-2">
-                  Thanks! I'll WhatsApp you shortly.
+                  Thanks! I&apos;ll WhatsApp you shortly.
                 </h3>
                 <p className="text-deep-navy/70">
-                  I've received your inquiry and will send you a personalized
-                  property shortlist via WhatsApp within the next hour.
+                  I&apos;ve received your inquiry and will send you a
+                  personalized property shortlist via WhatsApp within the next
+                  hour.
                 </p>
               </div>
             )}

@@ -150,12 +150,11 @@ export default function Process() {
               Ready to Start Your Journey?
             </h3>
             <p className="text-desert-sand mb-6 max-w-2xl mx-auto">
-              // /* eslint-disable-next-line react/no-unescaped-entities */
-              Let&apos;s discuss your Dubai property goals and create a personalized
-              plan for success.
+              Let&apos;s discuss your Dubai property goals and create a
+              personalized plan for success.
             </p>
             <a
-              href="https://wa.me/971553108123?text=Hi%20Afaq%2C%20I'm%20ready%20to%20start%20my%20Dubai%20property%20journey."
+              href="https://wa.me/971553108123?text=Hi%20Afaq%2C%20I%27m%20ready%20to%20start%20my%20Dubai%20property%20journey."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 bg-whatsapp-green text-pearl-white px-8 py-4 rounded-lg font-semibold hover:bg-whatsapp-green/90 transition-colors duration-200 shadow-lg"

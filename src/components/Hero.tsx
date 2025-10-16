@@ -93,7 +93,8 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-xl md:text-2xl text-platinum/90 mb-12 leading-relaxed max-w-2xl font-light"
               >
-                Elite properties. Exceptional service. Unmatched expertise in Dubai's most prestigious neighborhoods.
+                Elite properties. Exceptional service. Unmatched expertise in
+                Dubai&apos;s most prestigious neighborhoods.
               </motion.p>
             </div>
 
@@ -144,7 +145,9 @@ export default function Hero() {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-pure-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <MessageCircle className="h-7 w-7 relative z-10" />
-                <span className="relative z-10 text-xl font-black">Start Chat</span>
+                <span className="relative z-10 text-xl font-black">
+                  Start Chat
+                </span>
               </motion.a>
 
               <motion.a
@@ -157,7 +160,6 @@ export default function Hero() {
                 <span className="text-xl font-black">Get Quote</span>
               </motion.a>
             </motion.div>
-
           </motion.div>
 
           {/* Right Content - Modern Dubai Visualization */}
@@ -172,38 +174,66 @@ export default function Hero() {
               {/* Building silhouettes */}
               <motion.div
                 animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
                 className="absolute bottom-0 left-4 w-8 h-24 bg-gradient-to-t from-accent-gold/60 to-accent-gold/20 rounded-t-lg"
               ></motion.div>
 
               <motion.div
                 animate={{ y: [0, -3, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                }}
                 className="absolute bottom-0 left-16 w-12 h-32 bg-gradient-to-t from-luxury-teal/60 to-luxury-teal/20 rounded-t-lg"
               ></motion.div>
 
               <motion.div
                 animate={{ y: [0, -7, 0] }}
-                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5,
+                }}
                 className="absolute bottom-0 left-32 w-16 h-48 bg-gradient-to-t from-electric-blue/60 to-electric-blue/20 rounded-t-lg"
               ></motion.div>
 
               <motion.div
                 animate={{ y: [0, -4, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 2,
+                }}
                 className="absolute bottom-0 right-16 w-10 h-28 bg-gradient-to-t from-accent-gold/60 to-accent-gold/20 rounded-t-lg"
               ></motion.div>
 
               <motion.div
                 animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+                transition={{
+                  duration: 7,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.5,
+                }}
                 className="absolute bottom-0 right-4 w-14 h-40 bg-gradient-to-t from-luxury-teal/60 to-luxury-teal/20 rounded-t-lg"
               ></motion.div>
 
               {/* Central Burj Khalifa-like structure */}
               <motion.div
                 animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 10,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
                 className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-6 h-64 bg-gradient-to-t from-accent-gold via-electric-blue to-luxury-teal rounded-t-lg shadow-2xl"
               ></motion.div>
 
@@ -217,7 +247,9 @@ export default function Hero() {
               >
                 <div className="text-center">
                   <div className="text-2xl mb-1">🏢</div>
-                  <div className="text-accent-gold font-bold text-sm">Palm Jumeirah</div>
+                  <div className="text-accent-gold font-bold text-sm">
+                    Palm Jumeirah
+                  </div>
                   <div className="text-platinum/70 text-xs">Luxury Villa</div>
                 </div>
               </motion.div>
@@ -231,7 +263,9 @@ export default function Hero() {
               >
                 <div className="text-center">
                   <div className="text-2xl mb-1">🌅</div>
-                  <div className="text-luxury-teal font-bold text-sm">Dubai Marina</div>
+                  <div className="text-luxury-teal font-bold text-sm">
+                    Dubai Marina
+                  </div>
                   <div className="text-platinum/70 text-xs">Sea View Apt</div>
                 </div>
               </motion.div>

@@ -61,8 +61,8 @@ export default function About() {
             className="space-y-6"
           >
             <p className="text-lg text-deep-navy/80 leading-relaxed">
-              I'm a Dubai-based Property Consultant focused on matching clients
-              to the right homes and investments. From first contact to
+              I&apos;m a Dubai-based Property Consultant focused on matching
+              clients to the right homes and investments. From first contact to
               after-sales support, I run a tight process: needs assessment →
               curated viewings → negotiation → smooth closing.
             </p>

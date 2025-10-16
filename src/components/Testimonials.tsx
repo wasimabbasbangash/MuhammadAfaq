@@ -35,7 +35,7 @@ export default function Testimonials() {
     {
       id: 4,
       quote:
-        "Afaq's multilingual support was crucial for my family. He explained everything clearly and helped us find the perfect family home in JVC.",
+        "Afaq&apos;s multilingual support was crucial for my family. He explained everything clearly and helped us find the perfect family home in JVC.",
       author: "Fatima Al-Zahra",
       role: "Buyer — JVC",
       rating: 5,
@@ -120,7 +120,8 @@ export default function Testimonials() {
             viewport={{ once: true }}
             className="text-xl md:text-2xl text-platinum/90 max-w-4xl mx-auto leading-relaxed font-light"
           >
-            Authentic experiences from Dubai property transactions with Muhammad Afaq.
+            Authentic experiences from Dubai property transactions with Muhammad
+            Afaq.
           </motion.p>
         </motion.div>
 
@@ -177,8 +178,7 @@ export default function Testimonials() {
 
                 {/* Quote */}
                 <blockquote className="text-platinum/80 mb-10 leading-relaxed text-lg font-light">
-                  // /* eslint-disable-next-line react/no-unescaped-entities */
-                  {&ldquo;testimonial.quote&ldquo;}
+                  &quot;{testimonial.quote}&quot;
                 </blockquote>
 
                 {/* Author */}
