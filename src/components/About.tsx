@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   MapPin,
   Briefcase,
@@ -51,12 +52,37 @@ export default function About() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
+          {/* Profile Picture */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="flex justify-center lg:justify-start"
+          >
+            <div className="relative">
+              <div className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-2xl overflow-hidden shadow-2xl border-4 border-pure-white">
+                <Image
+                  src="/assets/images/IMG_9669.JPG"
+                  alt="Muhammad Afaq - Dubai Property Consultant"
+                  width={320}
+                  height={320}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Professional badge */}
+              <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-deep-navy to-electric-blue text-pure-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                20+ Years Experience
+              </div>
+            </div>
+          </motion.div>
+
           {/* Bio Content */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
             className="space-y-6"
           >

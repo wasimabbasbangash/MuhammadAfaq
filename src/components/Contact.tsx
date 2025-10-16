@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MessageCircle, Send, CheckCircle } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -73,17 +74,25 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      // Simulate API call - replace with actual API endpoint
-      await new Promise((resolve, reject) => {
-        setTimeout(() => {
-          // Simulate occasional failure for demo
-          if (Math.random() > 0.9) {
-            reject(new Error("Network error"));
-          } else {
-            resolve(true);
-          }
-        }, 2000);
-      });
+      // EmailJS configuration - Replace these with your actual credentials
+      const serviceId = "service_i9zvj0l"; // Your EmailJS service ID
+      const templateId = "template_jyadryo"; // Get from EmailJS → Email Templates → Template ID
+      const publicKey = "VIaRpZrENAbawC27u"; // Get from EmailJS → Account → General → Public Key
+
+      // Prepare email template parameters
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone || "Not provided",
+        interest: formData.interest,
+        area: formData.area || "Not specified",
+        budget: formData.budget || "Not specified",
+        message: formData.message,
+        to_name: "Muhammad Afaq",
+      };
+
+      // Send email using EmailJS
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
 
       setIsSubmitted(true);
 
