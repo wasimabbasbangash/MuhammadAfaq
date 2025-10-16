@@ -20,7 +20,7 @@ export default function About() {
     {
       icon: Briefcase,
       title: "Current Company",
-      value: "Springfield Real Estate",
+      value: "Muhammad Afaq",
       subtitle: "20+ Years in Dubai Market",
     },
     {
@@ -61,7 +61,7 @@ export default function About() {
             className="space-y-6"
           >
             <p className="text-lg text-deep-navy/80 leading-relaxed">
-              I&apos;m a Dubai-based Property Consultant at Springfield Real
+              I&apos;m a Dubai-based Property Consultant at Muhammad Afaq
               Estate, focused on matching clients to the right homes and
               investments. Backed by over 20 years of company excellence in the
               Dubai market, I deliver a systematic process: needs assessment →

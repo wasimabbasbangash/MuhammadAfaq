@@ -209,7 +209,7 @@ export default function Areas() {
             href="https://wa.me/971553108123?text=Hi%20Afaq%2C%20I%20need%20help%20choosing%20the%20right%20Dubai%20area%20for%20me."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 bg-accent-gold text-deep-navy px-8 py-3 rounded-lg font-semibold hover:bg-accent-gold/90 transition-colors duration-200 shadow-lg"
+            className="inline-flex items-center space-x-2 bg-accent-gold text-pure-white px-8 py-3 rounded-lg font-semibold hover:bg-accent-gold/90 transition-colors duration-200 shadow-lg"
           >
             <span>Get Area Recommendations</span>
           </a>

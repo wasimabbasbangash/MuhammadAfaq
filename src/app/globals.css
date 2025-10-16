@@ -2,36 +2,38 @@
 @import "tailwindcss";
 
 @theme {
-  /* Welcoming Real Estate Color Palette */
-  /* Primary - Warm, Trustworthy Blue */
-  --color-deep-navy: #2c3e50;
-  --color-rich-navy: #2c3e50;
+  /* Modern Navy Professional Color Palette */
+  /* Primary - Navy Blue (Trust & Professionalism) */
+  --color-deep-navy: #003366;
+  --color-rich-navy: #003366;
+  --color-midnight-black: #003366;
 
-  /* Secondary - Warm Gold (Professional & Welcoming) */
-  --color-accent-gold: #d4af37;
-  --color-golden-amber: #d4af37;
-
-  /* Friendly Greens */
+  /* Secondary - Sky Blue (Fresh & Modern) */
   --color-luxury-teal: #4a90e2;
   --color-modern-emerald: #4a90e2;
+  --color-electric-blue: #4a90e2;
 
-  /* Warm Neutrals */
-  --color-desert-sand: #fefefe;
-  --color-warm-sand: #fefefe;
+  /* Accent - Electric Blue (Energy & Technology) */
+  --color-accent-gold: #0066cc;
+  --color-golden-amber: #0066cc;
+  --color-vibrant-coral: #0066cc;
+
+  /* Warm Accent - Light Gray (Balance & Readability) */
+  --color-warm-peach: #f8f9fa;
+  --color-soft-peach: #f8f9fa;
+
+  /* Clean Backgrounds */
+  --color-desert-sand: #ffffff;
+  --color-warm-sand: #ffffff;
   --color-pearl-white: #ffffff;
   --color-pure-white: #ffffff;
 
-  /* Warm Accent Colors */
-  --color-vibrant-coral: #e74c3c; /* Warm coral for CTAs */
-  --color-elegant-purple: #8e44ad; /* Friendly purple */
+  /* Text & UI */
+  --color-platinum: #6c757d;
+  --color-elegant-purple: #495057;
 
   /* Action Colors */
   --color-whatsapp-green: #25d366;
-
-  /* Additional Warm Colors */
-  --color-electric-blue: #3498db;
-  --color-midnight-black: #34495e;
-  --color-platinum: #ecf0f1;
 
   /* Font families */
   --font-family-heading: "Poppins", sans-serif;
@@ -40,7 +42,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #2c3e50;
+  --foreground: #334155;
 }
 
 * {
@@ -48,11 +50,11 @@
 }
 
 body {
-  background: linear-gradient(135deg, #fefefe 0%, #f8f9fa 50%, #e9ecef 100%);
+  background: #ffffff;
   background-attachment: fixed;
   color: var(--foreground);
   font-family: "Inter", sans-serif;
-  line-height: 1.6;
+  line-height: 1.7;
   scroll-behavior: smooth;
   position: relative;
 }
@@ -65,15 +67,16 @@ body::before {
   right: 0;
   bottom: 0;
   background: radial-gradient(
-      circle at 25% 25%,
-      rgba(74, 144, 226, 0.03) 0%,
-      transparent 50%
+      circle at 20% 30%,
+      rgba(0, 51, 102, 0.06) 0%,
+      transparent 45%
     ),
     radial-gradient(
-      circle at 75% 75%,
-      rgba(212, 175, 55, 0.02) 0%,
-      transparent 50%
-    );
+      circle at 80% 70%,
+      rgba(74, 144, 226, 0.04) 0%,
+      transparent 45%
+    ),
+    linear-gradient(135deg, rgba(0, 102, 204, 0.02) 0%, transparent 60%);
   pointer-events: none;
   z-index: -1;
 }

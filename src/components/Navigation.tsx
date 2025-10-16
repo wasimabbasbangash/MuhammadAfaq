@@ -40,7 +40,7 @@ export default function Navigation() {
       <nav
         className={`fixed top-0 w-full z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-midnight-black/90 backdrop-blur-xl shadow-2xl border-b border-pure-white/10"
+            ? "bg-pure-white shadow-md border-b border-electric-blue/10"
             : "bg-transparent"
         }`}
       >
@@ -48,7 +48,7 @@ export default function Navigation() {
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <span className="text-2xl font-heading font-black bg-gradient-to-r from-accent-gold to-luxury-teal bg-clip-text text-transparent">
+              <span className="text-2xl font-heading font-black text-deep-navy">
                 Muhammad Afaq
               </span>
             </div>
@@ -60,7 +60,7 @@ export default function Navigation() {
                   <button
                     key={item.name}
                     onClick={() => scrollToSection(item.href)}
-                    className="text-platinum hover:text-accent-gold px-3 py-2 rounded-lg text-xs font-semibold uppercase tracking-wide transition-all duration-300 hover:bg-pure-white/10 whitespace-nowrap"
+                    className="text-elegant-purple hover:text-electric-blue px-3 py-2 rounded-lg text-xs font-semibold uppercase tracking-wide transition-all duration-300 hover:bg-electric-blue/5 whitespace-nowrap"
                   >
                     {item.name}
                   </button>
@@ -85,7 +85,7 @@ export default function Navigation() {
             <div className="hidden md:block lg:hidden">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-platinum hover:text-accent-gold p-3 rounded-lg hover:bg-pure-white/10 transition-all duration-300"
+                className="text-elegant-purple hover:text-electric-blue p-3 rounded-lg hover:bg-electric-blue/5 transition-all duration-300"
               >
                 {mobileMenuOpen ? (
                   <X className="h-7 w-7" />
@@ -99,7 +99,7 @@ export default function Navigation() {
             <div className="md:hidden">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-platinum hover:text-accent-gold p-3 rounded-lg hover:bg-pure-white/10 transition-all duration-300"
+                className="text-elegant-purple hover:text-electric-blue p-3 rounded-lg hover:bg-electric-blue/5 transition-all duration-300"
               >
                 {mobileMenuOpen ? (
                   <X className="h-7 w-7" />
@@ -113,13 +113,13 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-midnight-black/95 backdrop-blur-xl border-t border-pure-white/10">
+          <div className="lg:hidden bg-pure-white border-t border-electric-blue/10">
             <div className="px-4 pt-4 pb-6 space-y-2">
               {navigation.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-platinum hover:text-accent-gold block px-4 py-3 rounded-xl text-base font-semibold uppercase tracking-wide w-full text-left hover:bg-pure-white/10 transition-all duration-300"
+                  className="text-elegant-purple hover:text-electric-blue block px-4 py-3 rounded-xl text-base font-semibold uppercase tracking-wide w-full text-left hover:bg-electric-blue/5 transition-all duration-300"
                 >
                   {item.name}
                 </button>

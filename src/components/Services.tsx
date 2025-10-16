@@ -12,6 +12,8 @@ import {
   Users,
   Camera,
   Shield,
+  MessageCircle,
+  Mail,
 } from "lucide-react";
 
 export default function Services() {
@@ -79,7 +81,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="py-24 bg-gradient-to-br from-midnight-black via-deep-navy to-electric-blue/10 relative overflow-hidden"
+      className="py-24 bg-gradient-to-br from-pure-white via-soft-peach to-electric-blue/5 relative overflow-hidden"
     >
       {/* Modern Dubai Background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -109,83 +111,147 @@ export default function Services() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-24"
         >
+          {/* Decorative elements */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="inline-block mb-8"
+            className="flex justify-center mb-8"
           >
-            <span className="bg-gradient-to-r from-accent-gold to-luxury-teal bg-clip-text text-transparent text-lg font-black uppercase tracking-widest border-b-2 border-accent-gold/50 pb-2">
-              Our Services
-            </span>
+            <div className="flex items-center space-x-2">
+              <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-electric-blue"></div>
+              <div className="w-3 h-3 bg-gradient-to-br from-electric-blue to-accent-gold rounded-full"></div>
+              <span className="text-electric-blue font-bold text-sm uppercase tracking-widest">
+                Our Expertise
+              </span>
+              <div className="w-3 h-3 bg-gradient-to-br from-accent-gold to-electric-blue rounded-full"></div>
+              <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-electric-blue"></div>
+            </div>
           </motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl lg:text-7xl font-heading font-black text-pure-white mb-8 leading-none"
+            className="text-5xl md:text-7xl lg:text-8xl font-heading font-black text-deep-navy mb-8 leading-tight"
           >
-            Elite Real Estate
-            <span className="block bg-gradient-to-r from-accent-gold via-luxury-teal to-electric-blue bg-clip-text text-transparent">
-              Expertise
+            Comprehensive
+            <span className="block bg-gradient-to-r from-electric-blue via-accent-gold to-electric-blue bg-clip-text text-transparent">
+              Real Estate
             </span>
+            Solutions
           </motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
-            className="text-xl md:text-2xl text-platinum/90 max-w-4xl mx-auto leading-relaxed font-light"
+            className="text-xl md:text-2xl text-elegant-purple max-w-4xl mx-auto leading-relaxed mb-12"
           >
-            From curated shortlists to seamless transactions — every step of
-            your Dubai property journey, elevated.
+            From first-time buyers to seasoned investors, our tailored services
+            ensure every client finds their perfect Dubai property match.
           </motion.p>
+
+          {/* Service highlights */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap justify-center gap-8"
+          >
+            <div className="flex items-center space-x-2 bg-pure-white/60 backdrop-blur-sm rounded-full px-6 py-3 border border-electric-blue/20">
+              <Search className="w-5 h-5 text-electric-blue" />
+              <span className="text-deep-navy font-semibold">
+                Property Search
+              </span>
+            </div>
+            <div className="flex items-center space-x-2 bg-pure-white/60 backdrop-blur-sm rounded-full px-6 py-3 border border-accent-gold/20">
+              <Calculator className="w-5 h-5 text-accent-gold" />
+              <span className="text-deep-navy font-semibold">
+                Market Analysis
+              </span>
+            </div>
+            <div className="flex items-center space-x-2 bg-pure-white/60 backdrop-blur-sm rounded-full px-6 py-3 border border-electric-blue/20">
+              <Shield className="w-5 h-5 text-electric-blue" />
+              <span className="text-deep-navy font-semibold">
+                Legal Support
+              </span>
+            </div>
+          </motion.div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
-              whileHover={{ y: -12, scale: 1.03 }}
-              className="bg-gradient-to-br from-pure-white/5 to-pure-white/10 backdrop-blur-xl rounded-3xl p-8 shadow-2xl hover:shadow-accent-gold/20 border border-pure-white/10 relative overflow-hidden group"
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="bg-gradient-to-br from-pure-white/95 to-pure-white/80 backdrop-blur-xl rounded-2xl p-8 shadow-xl hover:shadow-2xl border border-electric-blue/10 relative overflow-hidden group"
             >
-              {/* Modern card background effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-accent-gold/5 to-luxury-teal/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-              {/* Card border glow effect */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-accent-gold/20 via-transparent to-luxury-teal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+              {/* Subtle background gradient on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-electric-blue/5 to-accent-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
               <div className="relative z-10">
+                {/* Service number badge */}
                 <motion.div
-                  whileHover={{ scale: 1.15, rotate: 10 }}
-                  className="bg-gradient-to-br from-accent-gold/20 to-luxury-teal/20 w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-xl group-hover:shadow-2xl group-hover:shadow-accent-gold/25 transition-all duration-300"
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
+                  viewport={{ once: true }}
+                  className="inline-flex items-center justify-center w-8 h-8 bg-gradient-to-br from-electric-blue to-accent-gold text-pure-white text-sm font-bold rounded-full mb-6"
                 >
-                  <service.icon className="h-8 w-8 text-accent-gold" />
+                  {index + 1}
                 </motion.div>
 
-                <h3 className="text-2xl font-heading font-black text-pure-white mb-6 group-hover:text-accent-gold transition-colors duration-300">
+                {/* Icon with modern styling */}
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-electric-blue/10 to-accent-gold/10 rounded-xl mb-6 border border-electric-blue/20 group-hover:border-accent-gold/30 transition-all duration-300"
+                >
+                  <service.icon className="h-8 w-8 text-electric-blue group-hover:text-accent-gold transition-colors duration-300" />
+                </motion.div>
+
+                <motion.h3
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 + 0.4 }}
+                  viewport={{ once: true }}
+                  className="text-2xl font-heading font-bold text-deep-navy mb-4 group-hover:text-electric-blue transition-colors duration-300"
+                >
                   {service.title}
-                </h3>
+                </motion.h3>
 
-                <p className="text-platinum/80 leading-relaxed mb-8 text-lg font-light">
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 + 0.5 }}
+                  viewport={{ once: true }}
+                  className="text-elegant-purple leading-relaxed mb-6 text-base"
+                >
                   {service.description}
-                </p>
+                </motion.p>
 
-                <div className="space-y-4">
+                {/* Features list with modern styling */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 + 0.6 }}
+                  viewport={{ once: true }}
+                  className="space-y-3"
+                >
                   {service.features.map((feature, featureIndex) => (
                     <motion.div
                       key={featureIndex}
@@ -193,18 +259,18 @@ export default function Services() {
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{
                         duration: 0.4,
-                        delay: index * 0.1 + featureIndex * 0.1,
+                        delay: index * 0.2 + featureIndex * 0.1 + 0.7,
                       }}
                       viewport={{ once: true }}
-                      className="flex items-center space-x-4 group/item"
+                      className="flex items-center space-x-3 group/feature"
                     >
-                      <div className="w-3 h-3 bg-gradient-to-r from-accent-gold to-luxury-teal rounded-full group-hover/item:scale-125 transition-transform duration-200 shadow-lg"></div>
-                      <span className="text-platinum/70 font-medium group-hover/item:text-pure-white transition-colors duration-200">
+                      <div className="w-2 h-2 bg-gradient-to-r from-electric-blue to-accent-gold rounded-full group-hover/feature:scale-125 transition-transform duration-200"></div>
+                      <span className="text-elegant-purple font-medium text-sm group-hover/feature:text-deep-navy transition-colors duration-200">
                         {feature}
                       </span>
                     </motion.div>
                   ))}
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           ))}
@@ -229,31 +295,70 @@ export default function Services() {
             <div className="absolute inset-0 bg-gradient-to-r from-accent-gold/5 via-transparent to-luxury-teal/5"></div>
 
             <div className="relative z-10">
-              <motion.p
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 1 }}
+              <motion.h3
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
                 viewport={{ once: true }}
-                className="text-pure-white mb-12 text-2xl md:text-3xl font-bold"
+                className="text-4xl md:text-6xl lg:text-7xl font-heading font-black text-deep-navy mb-8 leading-tight"
               >
-                Ready to discover your dream Dubai property?
-              </motion.p>
+                Ready to
+                <span className="block bg-gradient-to-r from-electric-blue via-accent-gold to-electric-blue bg-clip-text text-transparent">
+                  Make It Happen?
+                </span>
+              </motion.h3>
 
-              <motion.a
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.2 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                href="https://wa.me/971553108123?text=Hi%20Afaq%2C%20I%20am%20interested%20in%20Dubai%20property."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center space-x-4 bg-gradient-to-r from-whatsapp-green to-whatsapp-green/80 text-pure-white px-12 py-6 rounded-2xl font-black hover:shadow-2xl hover:shadow-whatsapp-green/25 transition-all duration-300 shadow-xl text-xl"
+                className="text-xl md:text-2xl text-elegant-purple mb-12 max-w-3xl mx-auto leading-relaxed"
               >
-                <span>Start Your Journey</span>
-                <div className="w-3 h-3 bg-pure-white rounded-full animate-pulse"></div>
-              </motion.a>
+                Let's connect and find the perfect property that matches your
+                vision, budget, and lifestyle in Dubai's most sought-after
+                locations.
+              </motion.p>
+
+              {/* CTA Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1 }}
+                viewport={{ once: true }}
+                className="flex flex-col sm:flex-row gap-6 justify-center"
+              >
+                <motion.a
+                  whileHover={{ scale: 1.05, y: -3 }}
+                  whileTap={{ scale: 0.95 }}
+                  href="https://wa.me/971553108123?text=Hi%20Afaq%2C%20I%20am%20interested%20in%20Dubai%20property."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative bg-gradient-to-r from-deep-navy to-electric-blue text-pure-white px-10 py-5 rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-electric-blue to-accent-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative z-10 flex items-center justify-center space-x-4">
+                    <MessageCircle className="h-6 w-6" />
+                    <span className="text-lg font-black">
+                      Start Your Journey
+                    </span>
+                  </div>
+                </motion.a>
+
+                <motion.a
+                  whileHover={{ scale: 1.05, y: -3 }}
+                  whileTap={{ scale: 0.95 }}
+                  href="mailto:afaqmuhammad599@gmail.com?subject=Property%20Inquiry%20(Dubai)&body=Hi%20Afaq%2C..."
+                  className="group bg-pure-white border-2 border-deep-navy text-deep-navy px-10 py-5 rounded-2xl font-bold hover:bg-deep-navy hover:text-pure-white shadow-xl hover:shadow-2xl transition-all duration-300"
+                >
+                  <div className="flex items-center justify-center space-x-4">
+                    <Mail className="h-6 w-6" />
+                    <span className="text-lg font-black">
+                      Free Consultation
+                    </span>
+                  </div>
+                </motion.a>
+              </motion.div>
             </div>
           </motion.div>
         </motion.div>

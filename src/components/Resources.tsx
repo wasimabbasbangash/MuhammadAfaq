@@ -170,7 +170,10 @@ export default function Resources() {
     : null;
 
   return (
-    <section id="resources" className="py-20 bg-deep-navy">
+    <section
+      id="resources"
+      className="py-20 bg-gradient-to-br from-pure-white via-soft-peach to-electric-blue/5"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -179,10 +182,10 @@ export default function Resources() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-pearl-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-[#003366] mb-4">
             Property Resources
           </h2>
-          <p className="text-xl text-desert-sand max-w-3xl mx-auto">
+          <p className="text-xl text-[#003366] max-w-3xl mx-auto">
             Expert insights to help you make informed Dubai property decisions.
           </p>
         </motion.div>
@@ -305,10 +308,10 @@ export default function Resources() {
           className="text-center"
         >
           <div className="bg-pearl-white/10 backdrop-blur-sm rounded-2xl p-8 border border-pearl-white/20">
-            <h3 className="text-2xl font-heading font-semibold text-pearl-white mb-4">
+            <h3 className="text-2xl font-heading font-semibold text-[#003366] mb-4">
               Stay Updated with Dubai Property Market
             </h3>
-            <p className="text-desert-sand mb-6 max-w-2xl mx-auto">
+            <p className="text-[#003366] mb-6 max-w-2xl mx-auto">
               Get weekly market updates, new listings, and expert insights
               delivered to your inbox.
             </p>
@@ -316,7 +319,7 @@ export default function Resources() {
               href="https://wa.me/971553108123?text=Hi%20Afaq%2C%20I'd%20like%20to%20subscribe%20to%20your%20Dubai%20property%20market%20updates."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 bg-accent-gold text-deep-navy px-8 py-3 rounded-lg font-semibold hover:bg-accent-gold/90 transition-colors duration-200 shadow-lg"
+              className="inline-flex items-center space-x-2 bg-accent-gold text-pure-white px-8 py-3 rounded-lg font-semibold hover:bg-accent-gold/90 transition-colors duration-200 shadow-lg"
             >
               <span>Get Market Updates</span>
             </a>

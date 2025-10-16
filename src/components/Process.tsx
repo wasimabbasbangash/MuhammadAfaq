@@ -55,7 +55,10 @@ export default function Process() {
   ];
 
   return (
-    <section id="process" className="py-20 bg-deep-navy">
+    <section
+      id="process"
+      className="py-20 bg-gradient-to-br from-pure-white via-soft-peach to-electric-blue/5"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -64,10 +67,10 @@ export default function Process() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-pearl-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-deep-navy mb-4">
             My Proven Process
           </h2>
-          <p className="text-xl text-desert-sand max-w-3xl mx-auto">
+          <p className="text-xl text-deep-navy max-w-3xl mx-auto">
             From inquiry to keys — a systematic approach to your Dubai property
             transaction.
           </p>
@@ -112,7 +115,7 @@ export default function Process() {
                 >
                   <div className="bg-pearl-white rounded-xl p-6 shadow-lg">
                     <div className="flex items-center space-x-3 mb-3">
-                      <span className="bg-accent-gold text-deep-navy px-3 py-1 rounded-full text-sm font-semibold">
+                      <span className="bg-accent-gold text-pure-white px-3 py-1 rounded-full text-sm font-semibold">
                         Step {index + 1}
                       </span>
                     </div>
@@ -146,10 +149,10 @@ export default function Process() {
           className="text-center mt-16"
         >
           <div className="bg-pearl-white/10 backdrop-blur-sm rounded-2xl p-8 border border-pearl-white/20">
-            <h3 className="text-2xl font-heading font-semibold text-pearl-white mb-4">
+            <h3 className="text-2xl font-heading font-semibold text-deep-navy mb-4">
               Ready to Start Your Journey?
             </h3>
-            <p className="text-desert-sand mb-6 max-w-2xl mx-auto">
+            <p className="text-deep-navy mb-6 max-w-2xl mx-auto">
               Let&apos;s discuss your Dubai property goals and create a
               personalized plan for success.
             </p>

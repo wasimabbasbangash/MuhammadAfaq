@@ -2,23 +2,23 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Dubai Real Estate Agent | Muhammad Afaq – Springfield Real Estate",
+  title: "Dubai Real Estate Agent | Muhammad Afaq – Property Consultant",
   description:
-    "Work with Muhammad Afaq at Springfield Real Estate (20+ years in Dubai). AED 50M+ closed deals, 80K+ social reach. Fast viewings, expert guidance. WhatsApp +971 55 310 8123.",
+    "Work with Muhammad Afaq, Dubai's premier property consultant (20+ years in Dubai). AED 50M+ closed deals, 80K+ social reach. Fast viewings, expert guidance. WhatsApp +971 55 310 8123.",
   keywords:
-    "Dubai real estate agent, property consultant, buy property Dubai, sell property Dubai, Muhammad Afaq, Springfield Real Estate, Dubai property deals",
+    "Dubai real estate agent, property consultant, buy property Dubai, sell property Dubai, Muhammad Afaq, Dubai property deals, real estate expert",
   authors: [{ name: "Muhammad Afaq" }],
   openGraph: {
-    title: "Dubai Real Estate Agent | Muhammad Afaq – Springfield Real Estate",
+    title: "Dubai Real Estate Agent | Muhammad Afaq – Property Consultant",
     description:
-      "Springfield Real Estate (20+ years in Dubai) | AED 50M+ closed deals | 80K+ social reach. Expert property consultant.",
+      "Muhammad Afaq (20+ years in Dubai) | AED 50M+ closed deals | 80K+ social reach. Expert property consultant.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dubai Real Estate Agent | Muhammad Afaq – Springfield",
-    description: "Springfield Real Estate | AED 50M+ closed | 80K+ followers.",
+    title: "Dubai Real Estate Agent | Muhammad Afaq",
+    description: "Muhammad Afaq | AED 50M+ closed | 80K+ followers.",
   },
 };
 
@@ -53,10 +53,10 @@ export default function RootLayout({
               email: "afaqmuhammad599@gmail.com",
               sameAs: ["https://www.linkedin.com/in/muhammad-afaq"],
               description:
-                "Property consultant at Springfield Real Estate with 20+ years company experience in Dubai, 80,000+ social followers, and AED 50M+ in closed deals",
+                "Dubai property consultant Muhammad Afaq with 20+ years of experience, 80,000+ social followers, and AED 50M+ in closed deals",
               worksFor: {
                 "@type": "RealEstateAgent",
-                name: "Springfield Real Estate",
+                name: "Muhammad Afaq Real Estate",
                 foundingDate: "2003",
                 areaServed: "Dubai",
               },

@@ -25,7 +25,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-deep-navy text-pearl-white">
+    <footer className="bg-deep-navy text-pure-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Trust & Credentials Band */}
         <div className="border-b border-desert-sand/20 pb-8 mb-8">
@@ -36,7 +36,7 @@ export default function Footer() {
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <span className="bg-accent-gold/20 px-3 py-1 rounded-full">
-                Springfield Real Estate
+                Muhammad Afaq
               </span>
               <span className="bg-accent-gold/20 px-3 py-1 rounded-full">
                 CRM Tools

@@ -123,7 +123,7 @@ export default function FeaturedListings() {
                   <span
                     className={`px-2 py-1 text-xs font-medium rounded-full ${
                       listing.type === "Off-plan"
-                        ? "bg-accent-gold text-deep-navy"
+                        ? "bg-accent-gold text-pure-white"
                         : "bg-deep-navy text-pearl-white"
                     }`}
                   >
@@ -214,7 +214,7 @@ export default function FeaturedListings() {
           </p>
           <button
             onClick={scrollToContact}
-            className="bg-accent-gold text-deep-navy px-8 py-3 rounded-lg font-semibold hover:bg-accent-gold/90 transition-colors duration-200 shadow-lg"
+            className="bg-accent-gold text-pure-white px-8 py-3 rounded-lg font-semibold hover:bg-accent-gold/90 transition-colors duration-200 shadow-lg"
           >
             Get a Custom Shortlist
           </button>

@@ -55,7 +55,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="py-24 bg-gradient-to-br from-electric-blue/5 via-deep-navy to-midnight-black relative overflow-hidden"
+      className="py-24 bg-gradient-to-br from-soft-peach via-pure-white to-electric-blue/5 relative overflow-hidden"
     >
       {/* Modern Background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -105,7 +105,7 @@ export default function Testimonials() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl lg:text-7xl font-heading font-black text-pure-white mb-8 leading-none"
+            className="text-4xl md:text-6xl lg:text-7xl font-heading font-black text-deep-navy mb-8 leading-none"
           >
             Voices of
             <span className="block bg-gradient-to-r from-accent-gold via-luxury-teal to-electric-blue bg-clip-text text-transparent">
@@ -196,7 +196,7 @@ export default function Testimonials() {
                     <span className="text-3xl">{testimonial.avatar}</span>
                   </motion.div>
                   <div>
-                    <div className="font-black text-pure-white text-xl mb-1 group-hover:text-accent-gold transition-colors duration-300">
+                    <div className="font-black text-deep-navy text-xl mb-1 group-hover:text-accent-gold transition-colors duration-300">
                       {testimonial.author}
                     </div>
                     <div className="text-sm text-platinum/70 bg-accent-gold/20 px-4 py-2 rounded-xl font-medium">
@@ -233,7 +233,7 @@ export default function Testimonials() {
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 1 }}
                 viewport={{ once: true }}
-                className="text-3xl md:text-4xl font-black mb-16 text-pure-white"
+                className="text-3xl md:text-4xl font-black mb-16 text-deep-navy"
               >
                 Trusted by Dubai&apos;s Property Seekers
               </motion.h3>

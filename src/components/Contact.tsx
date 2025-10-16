@@ -281,10 +281,10 @@ export default function Contact() {
                       required
                       value={formData.name}
                       onChange={handleInputChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-accent-gold focus:border-transparent transition-colors duration-200 ${
+                      className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-accent-gold focus:border-transparent transition-colors duration-200 ${
                         errors.name
                           ? "border-red-300 focus:ring-red-500"
-                          : "border-desert-sand/30"
+                          : "border-deep-navy/30"
                       }`}
                       placeholder="Your full name"
                     />
@@ -308,10 +308,10 @@ export default function Contact() {
                       required
                       value={formData.email}
                       onChange={handleInputChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent transition-colors duration-200 ${
+                      className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:border-transparent transition-colors duration-200 ${
                         errors.email
                           ? "border-red-300 focus:ring-red-500"
-                          : "border-desert-sand/30 focus:ring-accent-gold"
+                          : "border-deep-navy/30 focus:ring-accent-gold"
                       }`}
                       placeholder="your.email@example.com"
                     />
@@ -336,7 +336,7 @@ export default function Contact() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-desert-sand/30 rounded-lg focus:ring-2 focus:ring-accent-gold focus:border-transparent transition-colors duration-200"
+                      className="w-full px-4 py-3 border-2 border-deep-navy/30 rounded-lg focus:ring-2 focus:ring-accent-gold focus:border-transparent transition-colors duration-200"
                       placeholder="+971 XX XXX XXXX"
                     />
                   </div>
@@ -355,10 +355,10 @@ export default function Contact() {
                       required
                       value={formData.interest}
                       onChange={handleInputChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent transition-colors duration-200 ${
+                      className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:border-transparent transition-colors duration-200 ${
                         errors.interest
                           ? "border-red-300 focus:ring-red-500"
-                          : "border-desert-sand/30 focus:ring-accent-gold"
+                          : "border-deep-navy/30 focus:ring-accent-gold"
                       }`}
                     >
                       <option value="">Select your interest</option>
@@ -391,7 +391,7 @@ export default function Contact() {
                       name="area"
                       value={formData.area}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-desert-sand/30 rounded-lg focus:ring-2 focus:ring-accent-gold focus:border-transparent transition-colors duration-200"
+                      className="w-full px-4 py-3 border-2 border-deep-navy/30 rounded-lg focus:ring-2 focus:ring-accent-gold focus:border-transparent transition-colors duration-200"
                     >
                       <option value="">Select area (optional)</option>
                       <option value="Dubai Marina">Dubai Marina</option>
@@ -417,7 +417,7 @@ export default function Contact() {
                       name="budget"
                       value={formData.budget}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-desert-sand/30 rounded-lg focus:ring-2 focus:ring-accent-gold focus:border-transparent transition-colors duration-200"
+                      className="w-full px-4 py-3 border-2 border-deep-navy/30 rounded-lg focus:ring-2 focus:ring-accent-gold focus:border-transparent transition-colors duration-200"
                     >
                       <option value="">Select budget (optional)</option>
                       <option value="Under AED 1M">Under AED 1M</option>
@@ -443,10 +443,10 @@ export default function Contact() {
                       rows={4}
                       value={formData.message}
                       onChange={handleInputChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent transition-colors duration-200 resize-none ${
+                      className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:border-transparent transition-colors duration-200 resize-none ${
                         errors.message
                           ? "border-red-300 focus:ring-red-500"
-                          : "border-desert-sand/30 focus:ring-accent-gold"
+                          : "border-deep-navy/30 focus:ring-accent-gold"
                       }`}
                       placeholder="Tell me about your specific requirements, timeline, or any questions..."
                     />
@@ -468,7 +468,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-accent-gold text-deep-navy px-8 py-4 rounded-lg font-semibold hover:bg-accent-gold/90 transition-colors duration-200 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+                    className="w-full bg-accent-gold text-pure-white px-8 py-4 rounded-lg font-semibold hover:bg-accent-gold/90 transition-colors duration-200 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
                   >
                     {isSubmitting ? (
                       <>
