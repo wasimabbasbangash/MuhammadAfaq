@@ -67,9 +67,9 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="inline-block mb-6"
               >
-                <span className="inline-block bg-gradient-to-r from-accent-gold to-luxury-teal bg-clip-text text-transparent text-lg font-bold uppercase tracking-widest border-b-2 border-accent-gold/50 pb-2">
+                {/* <span className="inline-block bg-gradient-to-r from-accent-gold to-luxury-teal bg-clip-text text-transparent text-lg font-bold uppercase tracking-widest border-b-2 border-accent-gold/50 pb-2">
                   Muhammad Afaq
-                </span>
+                </span> */}
               </motion.div>
 
               <motion.h1
@@ -93,8 +93,8 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-xl md:text-2xl text-platinum/90 mb-12 leading-relaxed max-w-2xl font-light"
               >
-                Elite properties. Exceptional service. Unmatched expertise in
-                Dubai&apos;s most prestigious neighborhoods.
+                Elite properties. Exceptional service. Backed by Springfield
+                Real Estate&apos;s 20+ years of excellence in Dubai.
               </motion.p>
             </div>
 
@@ -107,8 +107,8 @@ export default function Hero() {
             >
               {[
                 { number: "50M+", label: "AED Closed", icon: "🏗️" },
-                { number: "60K+", label: "Social Reach", icon: "📱" },
-                { number: "100%", label: "Client Satisfaction", icon: "⭐" },
+                { number: "80K+", label: "Social Reach", icon: "📱" },
+                { number: "20+", label: "Years (Company)", icon: "🏢" },
               ].map((stat, index) => (
                 <motion.div
                   key={index}

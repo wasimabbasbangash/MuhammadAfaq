@@ -235,15 +235,14 @@ export default function Testimonials() {
                 viewport={{ once: true }}
                 className="text-3xl md:text-4xl font-black mb-16 text-pure-white"
               >
-                // /* eslint-disable-next-line react/no-unescaped-entities */
                 Trusted by Dubai&apos;s Property Seekers
               </motion.h3>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                 {[
-                  { number: "50+", label: "Happy Clients", icon: "👥" },
-                  { number: "98%", label: "Satisfaction Rate", icon: "⭐" },
-                  { number: "24/7", label: "Support Available", icon: "🕒" },
+                  { number: "80K+", label: "Social Followers", icon: "📱" },
+                  { number: "20+", label: "Years (Company)", icon: "🏢" },
+                  { number: "50M+", label: "AED Closed", icon: "💰" },
                 ].map((stat, index) => (
                   <motion.div
                     key={index}

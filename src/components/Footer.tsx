@@ -31,11 +31,12 @@ export default function Footer() {
         <div className="border-b border-desert-sand/20 pb-8 mb-8">
           <div className="text-center">
             <p className="text-lg font-medium mb-4">
-              AED 50M+ closed deals | CRM-driven follow-ups | 60K+ social reach
+              AED 50M+ closed deals | 80K+ social reach | 20+ years company
+              experience
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <span className="bg-accent-gold/20 px-3 py-1 rounded-full">
-                Revo Realty
+                Springfield Real Estate
               </span>
               <span className="bg-accent-gold/20 px-3 py-1 rounded-full">
                 CRM Tools

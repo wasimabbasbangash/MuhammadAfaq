@@ -19,20 +19,20 @@ export default function About() {
     },
     {
       icon: Briefcase,
-      title: "Experience",
-      value: "Revo Realty (Dubai), Ajwa Marketing (Islamabad)",
-      subtitle: "Residential & Commercial",
+      title: "Current Company",
+      value: "Springfield Real Estate",
+      subtitle: "20+ Years in Dubai Market",
+    },
+    {
+      icon: Users,
+      title: "Social Reach",
+      value: "80,000+ Followers",
+      subtitle: "Engaged audience across platforms",
     },
     {
       icon: GraduationCap,
       title: "Background",
       value: "BBA (Institute of Management & Sciences, Pakistan)",
-    },
-    {
-      icon: Users,
-      title: "Past Roles",
-      value: "Sales Exec/Intern (Habib Insurance)",
-      subtitle: "Lead gen, client consultation, account ops",
     },
   ];
 
@@ -61,16 +61,17 @@ export default function About() {
             className="space-y-6"
           >
             <p className="text-lg text-deep-navy/80 leading-relaxed">
-              I&apos;m a Dubai-based Property Consultant focused on matching
-              clients to the right homes and investments. From first contact to
-              after-sales support, I run a tight process: needs assessment →
+              I&apos;m a Dubai-based Property Consultant at Springfield Real
+              Estate, focused on matching clients to the right homes and
+              investments. Backed by over 20 years of company excellence in the
+              Dubai market, I deliver a systematic process: needs assessment →
               curated viewings → negotiation → smooth closing.
             </p>
 
             <p className="text-lg text-deep-navy/80 leading-relaxed">
               I leverage CRM tools to keep every conversation and follow-up on
-              track, and I create original social content to boost listing
-              visibility.
+              track, and with 80,000+ social media followers, I create original
+              content to maximize listing visibility and reach qualified buyers.
             </p>
 
             {/* Skills/Expertise */}
