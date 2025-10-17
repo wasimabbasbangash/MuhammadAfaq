@@ -129,8 +129,8 @@ export default function Hero() {
               className="text-xl md:text-2xl text-elegant-purple leading-relaxed max-w-xl"
             >
               Hi, I'm Muhammad Afaq. Transform your property dreams into reality
-              with my 20+ years of expertise, 80,000+ social media followers,
-              and unparalleled Dubai market knowledge.
+              with my 5+ years of expertise, 80,000+ social media followers, and
+              unparalleled Dubai market knowledge.
             </motion.p>
 
             {/* Trust Indicators */}

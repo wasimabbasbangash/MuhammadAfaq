@@ -31,7 +31,7 @@ export default function Footer() {
         <div className="border-b border-desert-sand/20 pb-8 mb-8">
           <div className="text-center">
             <p className="text-lg font-medium mb-4">
-              AED 50M+ closed deals | 80K+ social reach | 20+ years company
+              AED 50M+ closed deals | 80K+ social reach | 5+ years company
               experience
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">

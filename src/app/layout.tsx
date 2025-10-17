@@ -4,14 +4,14 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Dubai Real Estate Agent | Muhammad Afaq – Property Consultant",
   description:
-    "Work with Muhammad Afaq, Dubai's premier property consultant (20+ years in Dubai). AED 50M+ closed deals, 80K+ social reach. Fast viewings, expert guidance. WhatsApp +971 55 310 8123.",
+    "Work with Muhammad Afaq, Dubai's premier property consultant (5+ years in Dubai). AED 50M+ closed deals, 80K+ social reach. Fast viewings, expert guidance. WhatsApp +971 55 310 8123.",
   keywords:
     "Dubai real estate agent, property consultant, buy property Dubai, sell property Dubai, Muhammad Afaq, Dubai property deals, real estate expert",
   authors: [{ name: "Muhammad Afaq" }],
   openGraph: {
     title: "Dubai Real Estate Agent | Muhammad Afaq – Property Consultant",
     description:
-      "Muhammad Afaq (20+ years in Dubai) | AED 50M+ closed deals | 80K+ social reach. Expert property consultant.",
+      "Muhammad Afaq (5+ years in Dubai) | AED 50M+ closed deals | 80K+ social reach. Expert property consultant.",
     type: "website",
     locale: "en_US",
   },
@@ -53,7 +53,7 @@ export default function RootLayout({
               email: "afaqmuhammad599@gmail.com",
               sameAs: ["https://www.linkedin.com/in/muhammad-afaq"],
               description:
-                "Dubai property consultant Muhammad Afaq with 20+ years of experience, 80,000+ social followers, and AED 50M+ in closed deals",
+                "Dubai property consultant Muhammad Afaq with 5+ years of experience, 80,000+ social followers, and AED 50M+ in closed deals",
               worksFor: {
                 "@type": "RealEstateAgent",
                 name: "Muhammad Afaq Real Estate",
