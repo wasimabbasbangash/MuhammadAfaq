@@ -149,7 +149,7 @@ export default function Hero() {
               <div className="flex items-center space-x-2">
                 <TrendingUp className="w-6 h-6 text-electric-blue" />
                 <span className="text-deep-navy font-semibold">
-                  20+ Years Experience
+                  5+ Years Experience
                 </span>
               </div>
             </motion.div>
