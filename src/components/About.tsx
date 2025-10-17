@@ -22,7 +22,7 @@ export default function About() {
       icon: Briefcase,
       title: "Current Company",
       value: "Muhammad Afaq",
-      subtitle: "20+ Years in Dubai Market",
+      subtitle: "5+ Years in Dubai Market",
     },
     {
       icon: Users,
@@ -73,7 +73,7 @@ export default function About() {
               </div>
               {/* Professional badge */}
               <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-deep-navy to-electric-blue text-pure-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-                20+ Years Experience
+                5+ Years Experience
               </div>
             </div>
           </motion.div>
@@ -89,7 +89,7 @@ export default function About() {
             <p className="text-lg text-deep-navy/80 leading-relaxed">
               I&apos;m a Dubai-based Property Consultant at Muhammad Afaq
               Estate, focused on matching clients to the right homes and
-              investments. Backed by over 20 years of company excellence in the
+              investments. Backed by over 5 years of company excellence in the
               Dubai market, I deliver a systematic process: needs assessment →
               curated viewings → negotiation → smooth closing.
             </p>

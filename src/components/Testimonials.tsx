@@ -241,7 +241,11 @@ export default function Testimonials() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                 {[
                   { number: "80K+", label: "Social Followers", icon: "📱" },
-                  { number: "20+", label: "Years (Company)", icon: "🏢" },
+                  {
+                    number: "20+",
+                    label: "Years (Company Existence)",
+                    icon: "🏢",
+                  },
                   { number: "50M+", label: "AED Closed", icon: "💰" },
                 ].map((stat, index) => (
                   <motion.div
