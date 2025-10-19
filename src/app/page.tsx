@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import HotProperties from "@/components/HotProperties";
 import Services from "@/components/Services";
 import Areas from "@/components/Areas";
 import Process from "@/components/Process";
@@ -16,6 +17,7 @@ export default function Home() {
       <main>
         <Hero />
         <About />
+        <HotProperties />
         <Services />
         <Areas />
         <Process />

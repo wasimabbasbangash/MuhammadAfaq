@@ -1,0 +1,39 @@
+{
+  "properties": [
+    {
+      "id": "1760871270214",
+      "title": "rauental tower",
+      "community": "koblenz",
+      "beds": 1,
+      "baths": 1,
+      "size": "",
+      "price": "AED 2.8",
+      "type": "Secondary",
+      "tags": [],
+      "urgent": false,
+      "image": "/assets/images/hot-properties/1760871263110/1760871263123-pa0mwd2faxn.JPG",
+      "images": [
+        "/assets/images/hot-properties/1760871263110/1760871263130-l90yvag3pge.JPG"
+      ],
+      "description": ""
+    },
+    {
+      "id": "1760872446012",
+      "title": "alizai",
+      "community": "kohat",
+      "beds": 1,
+      "baths": 1,
+      "size": "500",
+      "price": "AED 1million",
+      "type": "Off-plan",
+      "tags": [],
+      "urgent": true,
+      "image": "/assets/images/hot-properties/1760872433132/1760872433134-851r19eo0nc.jpg",
+      "images": [
+        "/assets/images/hot-properties/1760872433132/1760872433144-z945smawne.jpg",
+        "/assets/images/hot-properties/1760872433132/1760872433147-5g4oo2k4b4m.jpg"
+      ],
+      "description": "alksdfjkaldfjlasfjlsjf;laskjlfasj;fladskjf;lasdjflasjflkasjdfasiofiuasgfihusdgafukskjfhjkasdfhadsfhjksdhkjdsalksdfjkaldfjlasfjlsjf;laskjlfasj;fladskjf;lasdjflasjflkasjdfasiofiuasgfihusdgafukskjfhjkasdfhadsfhjksdhkjdsalksdfjkaldfjlasfjlsjf;laskjlfasj;fladskjf;lasdjflasjflkasjdfasiofiuasgfihusdgafukskjfhjkasdfhadsfhjksdhkjds"
+    }
+  ]
+}

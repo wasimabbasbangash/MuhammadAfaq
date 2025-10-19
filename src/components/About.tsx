@@ -21,8 +21,8 @@ export default function About() {
     {
       icon: Briefcase,
       title: "Current Company",
-      value: "Muhammad Afaq",
-      subtitle: "5+ Years in Dubai Market",
+      value: "SpringField Properties",
+      subtitle: "20+ Years in Dubai Market",
     },
     {
       icon: Users,
@@ -64,7 +64,7 @@ export default function About() {
             <div className="relative">
               <div className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-2xl overflow-hidden shadow-2xl border-4 border-pure-white">
                 <Image
-                  src="/assets/images/IMG_9669.JPG"
+                  src="/assets/images/colleagues.JPG"
                   alt="Muhammad Afaq - Dubai Property Consultant"
                   width={320}
                   height={320}
@@ -73,7 +73,7 @@ export default function About() {
               </div>
               {/* Professional badge */}
               <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-deep-navy to-electric-blue text-pure-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-                5+ Years Experience
+                20+ Years of Collective Experience
               </div>
             </div>
           </motion.div>
@@ -89,7 +89,7 @@ export default function About() {
             <p className="text-lg text-deep-navy/80 leading-relaxed">
               I&apos;m a Dubai-based Property Consultant at Muhammad Afaq
               Estate, focused on matching clients to the right homes and
-              investments. Backed by over 5 years of company excellence in the
+              investments. Backed by over 20 years of company excellence in the
               Dubai market, I deliver a systematic process: needs assessment →
               curated viewings → negotiation → smooth closing.
             </p>

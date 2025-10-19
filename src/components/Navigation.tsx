@@ -6,6 +6,7 @@ import { Menu, X, MessageCircle } from "lucide-react";
 const navigation = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
+  { name: "Hot Properties", href: "#hot-properties" },
   { name: "Services", href: "#services" },
   { name: "Areas", href: "#areas" },
   { name: "Process", href: "#process" },
@@ -143,14 +144,14 @@ export default function Navigation() {
       </nav>
 
       {/* Mobile/Tablet Sticky WhatsApp Button */}
-      <div className="lg:hidden fixed bottom-8 right-8 z-50">
+      <div className="lg:hidden fixed bottom-6 right-6 z-50">
         <a
           href="https://wa.me/971553108123?text=Hi%20Afaq%2C%20I%20am%20interested%20in%20Dubai%20property."
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-gradient-to-r from-whatsapp-green to-whatsapp-green/80 text-pure-white p-5 rounded-full shadow-2xl hover:shadow-whatsapp-green/25 hover:scale-110 transition-all duration-300"
+          className="bg-gradient-to-r from-whatsapp-green to-whatsapp-green/80 text-pure-white p-6 rounded-full shadow-2xl hover:shadow-whatsapp-green/25 hover:scale-110 transition-all duration-300 flex items-center justify-center"
         >
-          <MessageCircle className="h-7 w-7" />
+          <MessageCircle className="h-8 w-8" />
         </a>
       </div>
     </>
