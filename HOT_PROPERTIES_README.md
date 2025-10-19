@@ -38,6 +38,33 @@ The Hot Properties section allows you to showcase limited-time property opportun
 - **Password Reset**: Change password anytime from Settings in the admin panel
 - **Secure Storage**: Passwords are encrypted and stored securely
 
+## Deployment Setup
+
+### For Production Deployment
+When deploying to platforms like Vercel, Netlify, or other hosting services:
+
+1. **First Deployment**: Visit `/admin` on your deployed site and set up the password
+2. **Environment Variables**: The system uses environment variables for production
+3. **Password Persistence**: Set these environment variables in your hosting dashboard:
+
+```
+ADMIN_PASSWORD_HASH=$2b$12$LMLF9i0d1o2j8WRyH7U/CuQ4K9RRkDG6A2GIEwdrvxTPkPsPHJ4Z6
+ADMIN_CREATED_AT=2025-10-19T11:24:13.473Z
+```
+
+**Note**: The above hash is for the password "Pakistan1947$". If you want to use a different password, generate a new bcrypt hash with 12 salt rounds.
+
+### Generating Password Hash (Optional)
+If you need to set the password hash manually:
+
+1. Use an online bcrypt generator (search for "bcrypt generator")
+2. Set cost/salt rounds to 12
+3. Hash your desired password
+4. Set the `ADMIN_PASSWORD_HASH` environment variable
+
+### Local Development
+For local development, the system uses a local file (`data/admin-auth.json`). This file is not included in deployments for security reasons.
+
 ## How to Add/Edit Hot Properties
 
 ### Method 1: Admin Panel (Recommended)

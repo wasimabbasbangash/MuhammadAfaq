@@ -1,9 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-import fs from "fs";
-import path from "path";
-
-const PASSWORD_FILE = path.join(process.cwd(), "data", "admin-auth.json");
 
 export async function POST(request: NextRequest) {
   try {
@@ -16,19 +12,17 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Check if auth file exists
-    if (!fs.existsSync(PASSWORD_FILE)) {
+    // Check if admin password is set up
+    const storedHash = process.env.ADMIN_PASSWORD_HASH;
+    if (!storedHash) {
       return NextResponse.json(
         { success: false, message: "Admin account not set up" },
         { status: 400 }
       );
     }
 
-    // Read auth data
-    const authData = JSON.parse(fs.readFileSync(PASSWORD_FILE, "utf-8"));
-
     // Verify password
-    const isValid = await bcrypt.compare(password, authData.passwordHash);
+    const isValid = await bcrypt.compare(password, storedHash);
 
     if (!isValid) {
       return NextResponse.json(
@@ -37,9 +31,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Update last login
-    authData.lastLogin = new Date().toISOString();
-    fs.writeFileSync(PASSWORD_FILE, JSON.stringify(authData, null, 2));
+    // Update last login in environment (this is temporary for the session)
+    process.env.ADMIN_LAST_LOGIN = new Date().toISOString();
 
     return NextResponse.json({
       success: true,

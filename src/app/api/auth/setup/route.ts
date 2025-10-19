@@ -1,9 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-import fs from "fs";
-import path from "path";
-
-const PASSWORD_FILE = path.join(process.cwd(), "data", "admin-auth.json");
 
 export async function POST(request: NextRequest) {
   try {
@@ -23,19 +19,10 @@ export async function POST(request: NextRequest) {
     const saltRounds = 12;
     const passwordHash = await bcrypt.hash(password, saltRounds);
 
-    const authData = {
-      passwordHash,
-      createdAt: new Date().toISOString(),
-    };
-
-    // Ensure directory exists
-    const dir = path.dirname(PASSWORD_FILE);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-
-    // Save auth data
-    fs.writeFileSync(PASSWORD_FILE, JSON.stringify(authData, null, 2));
+    // Store in environment variable (for deployment compatibility)
+    // In production, this would typically go to a database
+    process.env.ADMIN_PASSWORD_HASH = passwordHash;
+    process.env.ADMIN_CREATED_AT = new Date().toISOString();
 
     return NextResponse.json({
       success: true,
