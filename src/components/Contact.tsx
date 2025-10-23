@@ -133,9 +133,9 @@ export default function Contact() {
     } catch (error) {
       console.error("Form submission error:", error);
       console.error("Error details:", {
-        message: error.message,
-        status: error.status,
-        text: error.text,
+        message: error instanceof Error ? error.message : 'Unknown error',
+        status: (error as any)?.status || 'Unknown',
+        text: (error as any)?.text || 'Unknown',
       });
       setErrors({
         submit:
