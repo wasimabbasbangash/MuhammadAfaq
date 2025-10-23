@@ -14,7 +14,18 @@ export async function POST(request: NextRequest) {
     }
 
     // Initialize database if needed
-    await initializeDatabase();
+    try {
+      await initializeDatabase();
+    } catch (error) {
+      console.error("Database initialization failed:", error);
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Database connection failed. Please try again.",
+        },
+        { status: 500 }
+      );
+    }
 
     // Get admin auth from database
     const adminAuth = await getAdminAuth();

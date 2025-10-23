@@ -17,7 +17,15 @@ export async function POST(request: NextRequest) {
     }
 
     // Initialize database if needed
-    await initializeDatabase();
+    try {
+      await initializeDatabase();
+    } catch (error) {
+      console.error("Database initialization failed:", error);
+      return NextResponse.json(
+        { success: false, message: "Database setup failed. Please try again." },
+        { status: 500 }
+      );
+    }
 
     // Hash the password
     const saltRounds = 12;

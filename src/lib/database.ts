@@ -3,6 +3,13 @@ import { sql } from "@vercel/postgres";
 // Create tables if they don't exist
 export async function initializeDatabase() {
   try {
+    // Check if we have database connection
+    if (!process.env.POSTGRES_URL) {
+      throw new Error(
+        "Database connection not configured. Please set up environment variables."
+      );
+    }
+
     // Create properties table
     await sql`
       CREATE TABLE IF NOT EXISTS properties (
