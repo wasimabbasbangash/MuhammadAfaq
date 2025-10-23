@@ -18,6 +18,7 @@ import {
   Star,
   Heart,
   Share2,
+  Loader2,
 } from "lucide-react";
 
 interface Property {
@@ -51,6 +52,9 @@ export default function PropertyDetailsModal({
   const [copiedPhone, setCopiedPhone] = useState(false);
   const [copiedWhatsApp, setCopiedWhatsApp] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
+  const [imageLoading, setImageLoading] = useState(true);
+  const [imageError, setImageError] = useState(false);
+  const [retryCount, setRetryCount] = useState(0);
 
   // Get all images (main image + additional images), remove duplicates
   const allImages = property
@@ -61,6 +65,9 @@ export default function PropertyDetailsModal({
 
   useEffect(() => {
     setCurrentImageIndex(0);
+    setImageLoading(true);
+    setImageError(false);
+    setRetryCount(0);
   }, [property, isOpen]);
 
   useEffect(() => {
@@ -88,12 +95,48 @@ export default function PropertyDetailsModal({
     setCurrentImageIndex((prev) =>
       prev === allImages.length - 1 ? 0 : prev + 1
     );
+    setImageLoading(true);
+    setImageError(false);
+    setRetryCount(0);
   };
 
   const prevImage = () => {
     setCurrentImageIndex((prev) =>
       prev === 0 ? allImages.length - 1 : prev - 1
     );
+    setImageLoading(true);
+    setImageError(false);
+    setRetryCount(0);
+  };
+
+  const handleImageLoad = () => {
+    setImageLoading(false);
+    setImageError(false);
+  };
+
+  const handleImageError = () => {
+    if (retryCount < 2) {
+      // Retry loading the image
+      setRetryCount((prev) => prev + 1);
+      setImageLoading(true);
+      setImageError(false);
+      // Force re-render by updating the src with a cache-busting parameter
+      setTimeout(() => {
+        const img = document.querySelector(
+          `img[alt*="${property?.title}"]`
+        ) as HTMLImageElement;
+        if (img) {
+          const currentSrc = img.src;
+          img.src =
+            currentSrc +
+            (currentSrc.includes("?") ? "&" : "?") +
+            `retry=${retryCount + 1}`;
+        }
+      }, 1000);
+    } else {
+      setImageLoading(false);
+      setImageError(true);
+    }
   };
 
   const copyToClipboard = async (text: string, type: "phone" | "whatsapp") => {
@@ -198,17 +241,58 @@ export default function PropertyDetailsModal({
                 {allImages.length > 0 ? (
                   <div className="w-full">
                     {/* Main Image */}
-                    <div className="relative w-full h-[400px] md:h-[500px]">
-                      <img
-                        src={allImages[currentImageIndex]}
-                        alt={`${property.title} - Image ${
-                          currentImageIndex + 1
-                        }`}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          e.currentTarget.src = "/api/placeholder/400/300";
-                        }}
-                      />
+                    <div className="relative w-full h-[400px] md:h-[500px] bg-gray-100">
+                      {/* Loading State */}
+                      {imageLoading && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+                          <div className="flex flex-col items-center space-y-2">
+                            <Loader2 className="h-8 w-8 animate-spin text-electric-blue" />
+                            <span className="text-sm text-gray-600">
+                              Loading image...
+                            </span>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Error State */}
+                      {imageError && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+                          <div className="text-center">
+                            <span className="text-6xl">🏢</span>
+                            <p className="text-gray-500 mt-2 text-sm">
+                              Image failed to load
+                            </p>
+                            <button
+                              onClick={() => {
+                                setImageError(false);
+                                setImageLoading(true);
+                                setRetryCount(0);
+                              }}
+                              className="mt-3 px-4 py-2 bg-electric-blue text-white rounded-lg text-sm hover:bg-electric-blue/80 transition-colors"
+                            >
+                              Try Again
+                            </button>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Main Image */}
+                      {!imageError && allImages[currentImageIndex] && (
+                        <img
+                          src={allImages[currentImageIndex]}
+                          alt={`${property.title} - Image ${
+                            currentImageIndex + 1
+                          }`}
+                          className={`w-full h-full object-cover transition-opacity duration-300 ${
+                            imageLoading ? "opacity-0" : "opacity-100"
+                          }`}
+                          style={{
+                            imageRendering: "auto",
+                          }}
+                          onLoad={handleImageLoad}
+                          onError={handleImageError}
+                        />
+                      )}
 
                       {/* Urgent Badge */}
                       {property.urgent && (
@@ -250,7 +334,12 @@ export default function PropertyDetailsModal({
                           {allImages.map((image, index) => (
                             <button
                               key={index}
-                              onClick={() => setCurrentImageIndex(index)}
+                              onClick={() => {
+                                setCurrentImageIndex(index);
+                                setImageLoading(true);
+                                setImageError(false);
+                                setRetryCount(0);
+                              }}
                               className={`flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden border-3 transition-all duration-300 ${
                                 index === currentImageIndex
                                   ? "border-electric-blue ring-2 ring-electric-blue/30 scale-105"
@@ -261,6 +350,9 @@ export default function PropertyDetailsModal({
                                 src={image}
                                 alt={`Thumbnail ${index + 1}`}
                                 className="w-full h-full object-cover"
+                                style={{
+                                  imageRendering: "auto",
+                                }}
                                 onError={(e) => {
                                   e.currentTarget.src =
                                     "/api/placeholder/400/300";

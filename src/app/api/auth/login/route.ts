@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
+import { getAdminAuth, initializeDatabase } from "@/lib/database";
 
 export async function POST(request: NextRequest) {
   try {
@@ -12,9 +13,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Check if admin password is set up
-    const storedHash = process.env.ADMIN_PASSWORD_HASH;
-    if (!storedHash) {
+    // Initialize database if needed
+    await initializeDatabase();
+
+    // Get admin auth from database
+    const adminAuth = await getAdminAuth();
+    if (!adminAuth) {
       return NextResponse.json(
         { success: false, message: "Admin account not set up" },
         { status: 400 }
@@ -22,7 +26,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Verify password
-    const isValid = await bcrypt.compare(password, storedHash);
+    const isValid = await bcrypt.compare(password, adminAuth.password_hash);
 
     if (!isValid) {
       return NextResponse.json(
@@ -30,9 +34,6 @@ export async function POST(request: NextRequest) {
         { status: 401 }
       );
     }
-
-    // Update last login in environment (this is temporary for the session)
-    process.env.ADMIN_LAST_LOGIN = new Date().toISOString();
 
     return NextResponse.json({
       success: true,

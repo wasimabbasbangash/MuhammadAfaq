@@ -1,8 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getAdminAuth, initializeDatabase } from "@/lib/database";
 
 export async function GET() {
   try {
-    const isSetup = !!process.env.ADMIN_PASSWORD_HASH;
+    // Initialize database if needed
+    await initializeDatabase();
+
+    const adminAuth = await getAdminAuth();
+    const isSetup = !!adminAuth;
     return NextResponse.json({ isSetup });
   } catch (error) {
     console.error("Check auth error:", error);

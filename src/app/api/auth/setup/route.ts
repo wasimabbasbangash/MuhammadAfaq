@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
+import { saveAdminAuth, initializeDatabase } from "@/lib/database";
 
 export async function POST(request: NextRequest) {
   try {
@@ -15,14 +16,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Initialize database if needed
+    await initializeDatabase();
+
     // Hash the password
     const saltRounds = 12;
     const passwordHash = await bcrypt.hash(password, saltRounds);
 
-    // Store in environment variable (for deployment compatibility)
-    // In production, this would typically go to a database
-    process.env.ADMIN_PASSWORD_HASH = passwordHash;
-    process.env.ADMIN_CREATED_AT = new Date().toISOString();
+    // Save to database
+    await saveAdminAuth(passwordHash);
 
     return NextResponse.json({
       success: true,

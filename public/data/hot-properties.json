@@ -1,3 +1,42 @@
 {
-  "properties": []
+  "properties": [
+    {
+      "id": "1761218749878",
+      "title": "test",
+      "community": "test",
+      "beds": 2,
+      "baths": 1,
+      "size": "200",
+      "price": "AED 1.0 million",
+      "type": "Off-plan",
+      "tags": [],
+      "urgent": true,
+      "image": "https://i.postimg.cc/vD8W7YHH/Whats-App-Image-2025-10-23-at-10-37-56.jpg",
+      "images": [
+        "https://i.postimg.cc/Ty9KhbbP/Whats-App-Image-2025-10-23-at-10-37-57.jpg",
+        "https://i.postimg.cc/Y43vjFF2/Whats-App-Image-2025-10-23-at-10-37-57-1.jpg",
+        "https://i.postimg.cc/XZ8rX55q/Whats-App-Image-2025-10-23-at-10-37-57-2.jpg",
+        "https://i.postimg.cc/06fzrSSr/Whats-App-Image-2025-10-23-at-10-37-57-3.jpg",
+        "https://i.postimg.cc/p9ZmyjjT/Whats-App-Image-2025-10-23-at-10-37-58.jpg",
+        "https://i.postimg.cc/rdJDz440/Whats-App-Image-2025-10-23-at-10-37-58-1.jpg",
+        "https://i.postimg.cc/Ny4KLXXK/Whats-App-Image-2025-10-23-at-10-37-58-2.jpg"
+      ],
+      "description": ""
+    },
+    {
+      "id": "1761219366065",
+      "title": "test1",
+      "community": "sadf",
+      "beds": 1,
+      "baths": 1,
+      "size": "",
+      "price": "22224",
+      "type": "Secondary",
+      "tags": [],
+      "urgent": true,
+      "image": "https://i.postimg.cc/DfLBT09s/Whats-App-Image-2025-10-23-at-10-37-56.jpg",
+      "images": [],
+      "description": ""
+    }
+  ]
 }
