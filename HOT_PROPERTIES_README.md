@@ -68,6 +68,47 @@ If you need to set the password hash manually:
 
 For local development, the system uses a local file (`data/admin-auth.json`). This file is not included in deployments for security reasons.
 
+## Adding Property Images
+
+### For Local Development
+
+- **File Upload**: Use the file upload feature in the admin panel
+- **Supported formats**: PNG, JPG, up to 10MB each
+- **Multiple images**: Upload multiple files at once
+
+### For Production (Vercel/Netlify)
+
+Since cloud deployments don't support file uploads, use the **Image URLs** option:
+
+1. **Select "Image URLs"**: In the admin panel, choose the radio button for "Image URLs"
+2. **Enter URLs**: Paste one image URL per line in the textarea
+3. **Format**: `https://example.com/image1.jpg` (one per line)
+4. **First URL**: Becomes the main property image
+5. **Additional URLs**: Become gallery images
+
+#### Where to Host Images:
+
+- **ImgBB** (free, no account needed)
+- **Imgur** (free image hosting)
+- **Cloudinary** (professional solution)
+- **AWS S3** (enterprise solution)
+- **Your own CDN**
+
+#### Example URLs:
+
+```
+https://i.imgur.com/example1.jpg
+https://i.imgur.com/example2.jpg
+https://i.imgur.com/example3.jpg
+```
+
+### Important Notes:
+
+- **File uploads don't work** on Vercel - use URLs instead
+- **External URLs are permanent** - images won't disappear
+- **Fast loading** - use optimized, compressed images
+- **HTTPS required** - all URLs must use HTTPS
+
 ## How to Add/Edit Hot Properties
 
 ### Method 1: Admin Panel (Recommended)

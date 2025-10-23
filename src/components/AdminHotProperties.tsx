@@ -79,6 +79,34 @@ export default function AdminHotProperties({
     }
   };
 
+  // Handle image input method toggle
+  useEffect(() => {
+    const handleImageMethodChange = (e: Event) => {
+      const target = e.target as HTMLInputElement;
+      const uploadSection = document.getElementById("upload-section");
+      const urlSection = document.getElementById("url-section");
+
+      if (target.value === "upload") {
+        uploadSection?.classList.remove("hidden");
+        urlSection?.classList.add("hidden");
+      } else if (target.value === "url") {
+        uploadSection?.classList.add("hidden");
+        urlSection?.classList.remove("hidden");
+      }
+    };
+
+    const radioButtons = document.querySelectorAll('input[name="imageMethod"]');
+    radioButtons.forEach((radio) => {
+      radio.addEventListener("change", handleImageMethodChange);
+    });
+
+    return () => {
+      radioButtons.forEach((radio) => {
+        radio.removeEventListener("change", handleImageMethodChange);
+      });
+    };
+  }, []);
+
   const uploadImages = async (files: FileList) => {
     setUploadingImages(true);
     try {
@@ -567,7 +595,38 @@ export default function AdminHotProperties({
                   Property Images
                 </label>
                 <div className="space-y-3">
-                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-4">
+                  {/* Image Input Method Selection */}
+                  <div className="flex space-x-4 mb-3">
+                    <label className="inline-flex items-center">
+                      <input
+                        type="radio"
+                        name="imageMethod"
+                        value="upload"
+                        defaultChecked
+                        className="form-radio h-4 w-4 text-blue-600"
+                      />
+                      <span className="ml-2 text-sm text-gray-700">
+                        Upload Files
+                      </span>
+                    </label>
+                    <label className="inline-flex items-center">
+                      <input
+                        type="radio"
+                        name="imageMethod"
+                        value="url"
+                        className="form-radio h-4 w-4 text-blue-600"
+                      />
+                      <span className="ml-2 text-sm text-gray-700">
+                        Image URLs
+                      </span>
+                    </label>
+                  </div>
+
+                  {/* File Upload Section */}
+                  <div
+                    id="upload-section"
+                    className="border-2 border-dashed border-gray-300 rounded-lg p-4"
+                  >
                     <div className="text-center">
                       <Upload className="mx-auto h-12 w-12 text-gray-400" />
                       <div className="mt-4">
@@ -595,6 +654,38 @@ export default function AdminHotProperties({
                           disabled={uploadingImages}
                         />
                       </div>
+                    </div>
+                  </div>
+
+                  {/* URL Input Section */}
+                  <div id="url-section" className="hidden space-y-3">
+                    <div className="border border-gray-300 rounded-lg p-4">
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Image URLs (one per line)
+                      </label>
+                      <textarea
+                        id="image-urls"
+                        rows={4}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="https://example.com/image1.jpg&#10;https://example.com/image2.jpg"
+                        onChange={(e) => {
+                          const urls = e.target.value
+                            .split("\n")
+                            .map((url) => url.trim())
+                            .filter((url) => url.length > 0);
+
+                          // Update the current property with URL images
+                          setCurrentProperty((prev) => ({
+                            ...prev,
+                            image: urls.length > 0 ? urls[0] : "",
+                            images: urls.length > 1 ? urls.slice(1) : [],
+                          }));
+                        }}
+                      />
+                      <p className="mt-2 text-xs text-gray-500">
+                        Enter one image URL per line. The first URL will be the
+                        main image.
+                      </p>
                     </div>
                   </div>
 

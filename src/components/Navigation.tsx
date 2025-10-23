@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
 
-const navigation = [
+const baseNavigation = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Hot Properties", href: "#hot-properties" },
@@ -18,6 +18,33 @@ const navigation = [
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [hasHotProperties, setHasHotProperties] = useState(false);
+
+  // Check if hot properties exist
+  useEffect(() => {
+    const checkHotProperties = async () => {
+      try {
+        const response = await fetch("/api/save-properties");
+        if (response.ok) {
+          const data = await response.json();
+          setHasHotProperties(data.properties && data.properties.length > 0);
+        }
+      } catch (error) {
+        console.error("Error checking hot properties:", error);
+        setHasHotProperties(false);
+      }
+    };
+
+    checkHotProperties();
+  }, []);
+
+  // Filter navigation to hide Hot Properties if none exist
+  const navigation = baseNavigation.filter((item) => {
+    if (item.name === "Hot Properties" && !hasHotProperties) {
+      return false;
+    }
+    return true;
+  });
 
   useEffect(() => {
     const handleScroll = () => {
