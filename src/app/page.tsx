@@ -16,8 +16,8 @@ export default function Home() {
       <Navigation />
       <main>
         <Hero />
-        <About />
         <HotProperties />
+        <About />
         <Services />
         <Areas />
         <Process />

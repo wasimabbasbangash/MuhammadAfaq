@@ -5,8 +5,8 @@ import { Menu, X, MessageCircle } from "lucide-react";
 
 const baseNavigation = [
   { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
   { name: "Hot Properties", href: "#hot-properties" },
+  { name: "About", href: "#about" },
   { name: "Services", href: "#services" },
   { name: "Areas", href: "#areas" },
   { name: "Process", href: "#process" },
