@@ -155,15 +155,33 @@ export default function PropertyDetailsModal({
   };
 
   const shareProperty = async () => {
-    if (navigator.share) {
+    const shareData = {
+      title: property?.title || "Property Details",
+      text: `Check out this amazing property: ${property?.title} in ${property?.community}`,
+      url: window.location.href,
+    };
+
+    if (
+      navigator.share &&
+      navigator.canShare &&
+      navigator.canShare(shareData)
+    ) {
       try {
-        await navigator.share({
-          title: property?.title,
-          text: `Check out this amazing property: ${property?.title} in ${property?.community}`,
-          url: window.location.href,
-        });
+        await navigator.share(shareData);
       } catch (err) {
-        console.log("Share cancelled");
+        console.log("Share cancelled or failed");
+      }
+    } else {
+      // Fallback: Copy to clipboard
+      try {
+        await navigator.clipboard.writeText(
+          `${shareData.text}\n\nView property: ${shareData.url}`
+        );
+        alert("Property link copied to clipboard!");
+      } catch (err) {
+        console.error("Failed to copy to clipboard:", err);
+        // Final fallback: show the URL
+        alert(`Share this property: ${shareData.url}`);
       }
     }
   };

@@ -143,7 +143,7 @@ export default function Hero() {
               <div className="flex items-center space-x-2">
                 <Award className="w-6 h-6 text-accent-gold" />
                 <span className="text-deep-navy font-semibold">
-                  AED 50M+ Closed
+                  AED 100M+ Closed
                 </span>
               </div>
               <div className="flex items-center space-x-2">
@@ -325,7 +325,7 @@ export default function Hero() {
               className="absolute -top-6 -right-6 bg-gradient-to-br from-accent-gold to-electric-blue text-pure-white p-4 rounded-2xl shadow-xl"
             >
               <div className="text-center">
-                <div className="text-2xl font-black">50M+</div>
+                <div className="text-2xl font-black">100M+</div>
                 <div className="text-xs font-medium">AED Closed</div>
               </div>
             </motion.div>

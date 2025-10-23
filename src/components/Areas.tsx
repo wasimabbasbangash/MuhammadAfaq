@@ -22,7 +22,7 @@ export default function Areas() {
       id: "downtown",
       name: "Downtown Dubai",
       color: "bg-gold-500",
-      priceRange: "AED 2M - 50M+",
+      priceRange: "AED 2M - 100M+",
       lifestyle:
         "Luxury living at the heart of Dubai with world-class amenities and Burj Khalifa views.",
       yields: "3-5% rental yields",

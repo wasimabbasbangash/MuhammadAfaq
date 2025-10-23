@@ -246,7 +246,7 @@ export default function Testimonials() {
                     label: "Years (Company Existence)",
                     icon: "🏢",
                   },
-                  { number: "50M+", label: "AED Closed", icon: "💰" },
+                  { number: "100M+", label: "AED Closed", icon: "💰" },
                 ].map((stat, index) => (
                   <motion.div
                     key={index}
