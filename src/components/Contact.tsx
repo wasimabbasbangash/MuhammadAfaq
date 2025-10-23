@@ -92,7 +92,14 @@ export default function Contact() {
       };
 
       // Send email using EmailJS
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      console.log("Sending email with params:", templateParams);
+      const result = await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      );
+      console.log("EmailJS result:", result);
 
       setIsSubmitted(true);
 
@@ -125,6 +132,11 @@ export default function Contact() {
       }, 3000);
     } catch (error) {
       console.error("Form submission error:", error);
+      console.error("Error details:", {
+        message: error.message,
+        status: error.status,
+        text: error.text,
+      });
       setErrors({
         submit:
           "Failed to send message. Please try again or contact directly via WhatsApp.",
