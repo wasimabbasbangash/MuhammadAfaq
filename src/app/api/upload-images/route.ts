@@ -12,6 +12,24 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "No files uploaded" }, { status: 400 });
     }
 
+    // Check if we're in Vercel production deployment
+    const isVercelProd =
+      process.env.VERCEL === "1" || process.env.NODE_ENV === "production";
+
+    if (isVercelProd) {
+      return NextResponse.json(
+        {
+          error:
+            "Image uploads are not supported on Vercel deployment. For production use, please configure cloud storage.",
+          solution:
+            "Use external URLs for property images or set up Cloudinary/AWS S3 integration.",
+          instructions:
+            "You can add property images by providing direct image URLs in the admin panel.",
+        },
+        { status: 503 }
+      );
+    }
+
     const uploadedFiles: string[] = [];
 
     // Create unique folder for this property upload batch

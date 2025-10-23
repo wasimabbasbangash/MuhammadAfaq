@@ -69,7 +69,7 @@ export default function AdminHotProperties({
 
   const loadProperties = async () => {
     try {
-      const response = await fetch("/data/hot-properties.json");
+      const response = await fetch("/api/save-properties");
       if (response.ok) {
         const data = await response.json();
         setProperties(data.properties || []);
@@ -110,7 +110,14 @@ export default function AdminHotProperties({
 
         setMessage(`Successfully uploaded ${newImages.length} images!`);
       } else {
-        throw new Error("Failed to upload images");
+        const errorData = await response.json();
+        if (response.status === 503 && errorData.error.includes("production")) {
+          throw new Error(
+            `Image uploads not supported in production. ${errorData.instructions}`
+          );
+        } else {
+          throw new Error(errorData.error || "Failed to upload images");
+        }
       }
     } catch (error) {
       console.error("Failed to upload images:", error);

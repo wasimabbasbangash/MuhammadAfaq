@@ -88,7 +88,7 @@ export default function Contact() {
         area: formData.area || "Not specified",
         budget: formData.budget || "Not specified",
         message: formData.message,
-        to_name: "Muhammad Afaq",
+        to_name: "Afaq Pukhtoon",
       };
 
       // Send email using EmailJS

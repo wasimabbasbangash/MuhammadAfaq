@@ -36,7 +36,7 @@ export default function Footer() {
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <span className="bg-accent-gold/20 px-3 py-1 rounded-full">
-                Muhammad Afaq
+                Afaq Pukhtoon
               </span>
               <span className="bg-accent-gold/20 px-3 py-1 rounded-full">
                 CRM Tools
@@ -139,7 +139,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="border-t border-desert-sand/20 mt-8 pt-8 text-center">
           <p className="text-desert-sand/70">
-            © {currentYear} Muhammad Afaq. All rights reserved. Dubai Real
+            © {currentYear} Afaq Pukhtoon. All rights reserved. Dubai Real
             Estate Agent.
           </p>
         </div>

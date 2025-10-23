@@ -50,7 +50,7 @@ export default function Navigation() {
             {/* Logo */}
             <div className="flex-shrink-0">
               <span className="text-2xl font-heading font-black text-deep-navy">
-                Muhammad Afaq
+                Afaq Pukhtoon
               </span>
             </div>
 

@@ -15,6 +15,9 @@ import {
   MessageCircle,
   Copy,
   Check,
+  Star,
+  Heart,
+  Share2,
 } from "lucide-react";
 
 interface Property {
@@ -47,6 +50,7 @@ export default function PropertyDetailsModal({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [copiedPhone, setCopiedPhone] = useState(false);
   const [copiedWhatsApp, setCopiedWhatsApp] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   // Get all images (main image + additional images), remove duplicates
   const allImages = property
@@ -107,6 +111,20 @@ export default function PropertyDetailsModal({
     }
   };
 
+  const shareProperty = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: property?.title,
+          text: `Check out this amazing property: ${property?.title} in ${property?.community}`,
+          url: window.location.href,
+        });
+      } catch (err) {
+        console.log("Share cancelled");
+      }
+    }
+  };
+
   if (!property) return null;
 
   return (
@@ -116,43 +134,71 @@ export default function PropertyDetailsModal({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4"
           onClick={onClose}
         >
           <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
+            initial={{ scale: 0.95, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.95, opacity: 0, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="bg-white rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden shadow-2xl"
+            className="bg-white rounded-3xl max-w-7xl w-full max-h-[95vh] overflow-hidden shadow-2xl border border-gray-200"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b border-gray-200">
-              <div>
-                <h2 className="text-2xl font-bold text-gray-900">
-                  {property.title}
-                </h2>
-                <div className="flex items-center text-gray-600 mt-1">
-                  <MapPin className="h-4 w-4 mr-1" />
-                  <span>{property.community}</span>
+            <div className="relative bg-gradient-to-r from-electric-blue/20 via-accent-gold/15 to-deep-navy/20 backdrop-blur-sm border-b border-electric-blue/10 p-6 text-deep-navy">
+              <div className="flex items-start justify-between">
+                <div className="flex-1">
+                  <h1 className="text-3xl font-bold mb-2">{property.title}</h1>
+                  <div className="flex items-center text-deep-navy/80 mb-3">
+                    <MapPin className="h-5 w-5 mr-2" />
+                    <span className="text-lg">{property.community}</span>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <span className="text-2xl font-bold">{property.price}</span>
+                    <span className="bg-electric-blue/10 backdrop-blur-sm px-3 py-1 rounded-full text-sm border border-electric-blue/20">
+                      {property.type}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-2">
+                  <button
+                    onClick={() => setIsFavorite(!isFavorite)}
+                    className={`p-3 rounded-full transition-all duration-200 border border-gray-200 ${
+                      isFavorite
+                        ? "bg-red-500 text-white"
+                        : "bg-white/60 text-deep-navy hover:bg-white/80"
+                    }`}
+                  >
+                    <Heart
+                      className={`h-5 w-5 ${isFavorite ? "fill-current" : ""}`}
+                    />
+                  </button>
+                  <button
+                    onClick={shareProperty}
+                    className="p-3 rounded-full bg-white/60 text-deep-navy hover:bg-white/80 transition-all duration-200 border border-gray-200"
+                  >
+                    <Share2 className="h-5 w-5" />
+                  </button>
+                  <button
+                    onClick={onClose}
+                    className="p-3 rounded-full bg-white/60 text-deep-navy hover:bg-white/80 transition-all duration-200 border border-gray-200"
+                  >
+                    <X className="h-6 w-6" />
+                  </button>
                 </div>
               </div>
-              <button
-                onClick={onClose}
-                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-              >
-                <X className="h-6 w-6 text-gray-500" />
-              </button>
             </div>
 
-            <div className="flex flex-col lg:flex-row max-h-[calc(90vh-80px)]">
-              {/* Image Gallery - Left Side */}
-              <div className="lg:w-1/2 relative bg-gray-100 flex flex-col">
+            {/* Single Column Scrollable Content */}
+            <div className="max-h-[calc(95vh-200px)] overflow-y-auto">
+              {/* Image Gallery - Full Width */}
+              <div className="relative bg-gray-50">
                 {allImages.length > 0 ? (
-                  <div className="flex flex-col h-full">
+                  <div className="w-full">
                     {/* Main Image */}
-                    <div className="relative flex-1 min-h-64">
+                    <div className="relative w-full h-[400px] md:h-[500px]">
                       <img
                         src={allImages[currentImageIndex]}
                         alt={`${property.title} - Image ${
@@ -164,44 +210,51 @@ export default function PropertyDetailsModal({
                         }}
                       />
 
+                      {/* Urgent Badge */}
+                      {property.urgent && (
+                        <div className="absolute top-4 left-4 bg-red-500 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg">
+                          🔥 HOT PROPERTY
+                        </div>
+                      )}
+
                       {/* Navigation Arrows */}
                       {allImages.length > 1 && (
                         <>
                           <button
                             onClick={prevImage}
-                            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
+                            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/95 hover:bg-white text-deep-navy p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200"
                           >
-                            <ChevronLeft className="h-4 w-4" />
+                            <ChevronLeft className="h-5 w-5" />
                           </button>
                           <button
                             onClick={nextImage}
-                            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
+                            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/95 hover:bg-white text-deep-navy p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200"
                           >
-                            <ChevronRight className="h-4 w-4" />
+                            <ChevronRight className="h-5 w-5" />
                           </button>
                         </>
                       )}
 
                       {/* Image Counter */}
                       {allImages.length > 1 && (
-                        <div className="absolute top-2 right-2 bg-black/70 text-white px-2 py-1 rounded-full text-xs font-medium">
+                        <div className="absolute top-4 right-4 bg-black/80 text-white px-3 py-2 rounded-full text-sm font-medium backdrop-blur-sm">
                           {currentImageIndex + 1} / {allImages.length}
                         </div>
                       )}
                     </div>
 
-                    {/* Thumbnail Strip - Compact */}
+                    {/* Thumbnail Strip */}
                     {allImages.length > 1 && (
-                      <div className="bg-white border-t border-gray-200 p-3">
-                        <div className="flex space-x-2 overflow-x-auto">
+                      <div className="bg-white border-t border-gray-200 p-4">
+                        <div className="flex space-x-3 overflow-x-auto pb-2 scrollbar-hide">
                           {allImages.map((image, index) => (
                             <button
                               key={index}
                               onClick={() => setCurrentImageIndex(index)}
-                              className={`flex-shrink-0 w-16 h-16 rounded-md overflow-hidden border-2 transition-all duration-200 ${
+                              className={`flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden border-3 transition-all duration-300 ${
                                 index === currentImageIndex
-                                  ? "border-blue-500 ring-1 ring-blue-200"
-                                  : "border-gray-300 hover:border-gray-400"
+                                  ? "border-electric-blue ring-2 ring-electric-blue/30 scale-105"
+                                  : "border-gray-200 hover:border-gray-300 hover:scale-102"
                               }`}
                             >
                               <img
@@ -220,61 +273,80 @@ export default function PropertyDetailsModal({
                     )}
                   </div>
                 ) : (
-                  <div className="flex-1 min-h-64 flex items-center justify-center bg-gray-200">
-                    <span className="text-4xl">🏢</span>
+                  <div className="w-full h-[400px] md:h-[500px] flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
+                    <div className="text-center">
+                      <span className="text-8xl">🏢</span>
+                      <p className="text-gray-500 mt-4 text-lg">
+                        No images available
+                      </p>
+                    </div>
                   </div>
                 )}
               </div>
 
-              {/* Property Details - Right Side */}
-              <div className="lg:w-1/2 p-4 overflow-y-auto">
-                {/* Price */}
-                <div className="mb-4">
-                  <div className="text-2xl font-bold text-green-600 mb-1">
-                    {property.price}
-                  </div>
-                  <div className="flex items-center text-xs text-gray-600">
-                    <Calendar className="h-3 w-3 mr-1" />
-                    <span>{property.type}</span>
-                  </div>
-                </div>
-
+              {/* Property Details - Single Column */}
+              <div className="p-6 md:p-8 bg-white">
                 {/* Key Features */}
-                <div className="grid grid-cols-3 gap-2 mb-4">
-                  <div className="text-center p-2 bg-gray-50 rounded-md">
-                    <Bed className="h-4 w-4 mx-auto text-gray-600 mb-1" />
-                    <div className="text-xs font-medium text-gray-900">
+                <div className="grid grid-cols-3 gap-4 mb-8">
+                  <div className="text-center p-4 bg-gradient-to-br from-electric-blue/10 to-accent-gold/10 rounded-2xl border border-electric-blue/20">
+                    <Bed className="h-8 w-8 mx-auto text-electric-blue mb-2" />
+                    <div className="text-2xl font-bold text-deep-navy">
                       {property.beds}
                     </div>
-                    <div className="text-xs text-gray-600">Beds</div>
+                    <div className="text-sm text-gray-600 font-medium">
+                      Bedrooms
+                    </div>
                   </div>
-                  <div className="text-center p-2 bg-gray-50 rounded-md">
-                    <Bath className="h-4 w-4 mx-auto text-gray-600 mb-1" />
-                    <div className="text-xs font-medium text-gray-900">
+                  <div className="text-center p-4 bg-gradient-to-br from-electric-blue/10 to-accent-gold/10 rounded-2xl border border-electric-blue/20">
+                    <Bath className="h-8 w-8 mx-auto text-electric-blue mb-2" />
+                    <div className="text-2xl font-bold text-deep-navy">
                       {property.baths}
                     </div>
-                    <div className="text-xs text-gray-600">Baths</div>
+                    <div className="text-sm text-gray-600 font-medium">
+                      Bathrooms
+                    </div>
                   </div>
-                  <div className="text-center p-2 bg-gray-50 rounded-md">
-                    <Square className="h-4 w-4 mx-auto text-gray-600 mb-1" />
-                    <div className="text-xs font-medium text-gray-900">
+                  <div className="text-center p-4 bg-gradient-to-br from-electric-blue/10 to-accent-gold/10 rounded-2xl border border-electric-blue/20">
+                    <Square className="h-8 w-8 mx-auto text-electric-blue mb-2" />
+                    <div className="text-2xl font-bold text-deep-navy">
                       {property.size}
                     </div>
-                    <div className="text-xs text-gray-600">Sqft</div>
+                    <div className="text-sm text-gray-600 font-medium">
+                      Sqft
+                    </div>
                   </div>
                 </div>
 
-                {/* Tags */}
+                {/* Property Type & Price Summary */}
+                <div className="bg-gradient-to-r from-deep-navy/5 to-electric-blue/5 p-4 rounded-2xl border border-deep-navy/10 mb-8">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <Calendar className="h-5 w-5 text-electric-blue" />
+                      <span className="text-deep-navy font-semibold">
+                        {property.type}
+                      </span>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-lg font-bold text-deep-navy">
+                        {property.price}
+                      </div>
+                      <div className="text-sm text-gray-600">Total Price</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Features Tags */}
                 {property.tags.length > 0 && (
-                  <div className="mb-4">
-                    <h3 className="text-xs font-medium text-gray-900 mb-2 uppercase tracking-wide">
-                      Features
+                  <div className="mb-8">
+                    <h3 className="text-xl font-bold text-deep-navy mb-4 flex items-center">
+                      <Star className="h-5 w-5 text-accent-gold mr-2" />
+                      Property Features
                     </h3>
-                    <div className="flex flex-wrap gap-1">
+                    <div className="flex flex-wrap gap-2">
                       {property.tags.map((tag, index) => (
                         <span
                           key={index}
-                          className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-md font-medium"
+                          className="px-4 py-2 bg-gradient-to-r from-electric-blue/10 to-accent-gold/10 text-electric-blue border border-electric-blue/20 rounded-full text-sm font-semibold hover:shadow-md transition-all duration-200"
                         >
                           {tag}
                         </span>
@@ -285,52 +357,76 @@ export default function PropertyDetailsModal({
 
                 {/* Description */}
                 {property.description && (
-                  <div className="mb-4">
-                    <h3 className="text-xs font-medium text-gray-900 mb-2 uppercase tracking-wide">
-                      Description
+                  <div className="mb-8">
+                    <h3 className="text-xl font-bold text-deep-navy mb-4">
+                      About This Property
                     </h3>
-                    <p className="text-xs text-gray-600 leading-relaxed">
-                      {property.description}
-                    </p>
+                    <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
+                      <p className="text-gray-700 leading-relaxed text-base whitespace-pre-line">
+                        {property.description}
+                      </p>
+                    </div>
                   </div>
                 )}
 
-                {/* Contact Buttons */}
-                <div className="space-y-2">
+                {/* Contact Section */}
+                <div className="space-y-4 mb-8">
+                  <h3 className="text-xl font-bold text-deep-navy mb-4">
+                    Get In Touch
+                  </h3>
+
                   <button
                     onClick={() => copyToClipboard("+971553108123", "phone")}
-                    className="w-full flex items-center justify-center space-x-2 bg-gray-900 text-white py-2 px-3 rounded-md text-sm font-medium hover:bg-gray-800 transition-colors"
+                    className="w-full flex items-center justify-center space-x-3 bg-gradient-to-r from-deep-navy to-electric-blue text-white py-4 px-6 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105"
                   >
                     {copiedPhone ? (
-                      <Check className="h-4 w-4" />
+                      <Check className="h-5 w-5" />
                     ) : (
-                      <Phone className="h-4 w-4" />
+                      <Phone className="h-5 w-5" />
                     )}
-                    <span>{copiedPhone ? "Copied!" : "Copy Phone"}</span>
+                    <span className="text-lg">
+                      {copiedPhone ? "Phone Copied!" : "Copy Phone Number"}
+                    </span>
                   </button>
 
                   <a
-                    href={`https://wa.me/971553108123?text=Hi%20Afaq%2C%20I'm%20interested%20in%20${encodeURIComponent(
+                    href={`https://wa.me/971553108123?text=Hi%20Muhammad%2C%20I'm%20interested%20in%20${encodeURIComponent(
                       property.title
                     )}%20in%20${encodeURIComponent(
                       property.community
                     )}%20-%20${encodeURIComponent(property.price)}.`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center space-x-2 bg-green-500 text-white py-2 px-3 rounded-md text-sm font-medium hover:bg-green-600 transition-colors"
+                    className="w-full flex items-center justify-center space-x-3 bg-gradient-to-r from-green-500 to-green-600 text-white py-4 px-6 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105"
                   >
-                    <MessageCircle className="h-4 w-4" />
-                    <span>WhatsApp</span>
+                    <MessageCircle className="h-5 w-5" />
+                    <span className="text-lg">WhatsApp Inquiry</span>
                   </a>
                 </div>
 
-                {/* Contact Info */}
-                <div className="mt-4 pt-4 border-t border-gray-200">
+                {/* Agent Info */}
+                <div className="bg-gradient-to-r from-deep-navy/5 to-electric-blue/5 p-6 rounded-2xl border border-deep-navy/10">
                   <div className="text-center">
-                    <p className="text-xs text-gray-600 mb-1">Muhammad Afaq</p>
-                    <p className="text-xs font-medium text-gray-900">
+                    <div className="w-16 h-16 bg-gradient-to-r from-deep-navy to-electric-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-white text-xl font-bold">MA</span>
+                    </div>
+                    <h4 className="text-lg font-bold text-deep-navy mb-1">
+                      Afaq Pukhtoon
+                    </h4>
+                    <p className="text-electric-blue font-semibold mb-2">
                       Dubai Property Expert
                     </p>
+                    <div className="flex items-center justify-center space-x-1">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <Star
+                          key={star}
+                          className="h-4 w-4 text-accent-gold fill-current"
+                        />
+                      ))}
+                      <span className="text-sm text-gray-600 ml-2">
+                        5.0 Rating
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>

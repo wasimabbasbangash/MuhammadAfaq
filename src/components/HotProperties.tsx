@@ -33,7 +33,7 @@ export default function HotProperties() {
     // Load hot properties from JSON file
     const loadProperties = async () => {
       try {
-        const response = await fetch("/data/hot-properties.json");
+        const response = await fetch("/api/save-properties");
         if (response.ok) {
           const data = await response.json();
           setProperties(data.properties || []);

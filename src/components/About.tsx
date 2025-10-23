@@ -48,7 +48,7 @@ export default function About() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-deep-navy mb-4">
-            Meet Muhammad Afaq
+            Meet Afaq Pukhtoon
           </h2>
         </motion.div>
 
@@ -65,7 +65,7 @@ export default function About() {
               <div className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-2xl overflow-hidden shadow-2xl border-4 border-pure-white">
                 <Image
                   src="/assets/images/colleagues.JPG"
-                  alt="Muhammad Afaq - Dubai Property Consultant"
+                  alt="Afaq Pukhtoon - Dubai Property Consultant"
                   width={320}
                   height={320}
                   className="w-full h-full object-cover"
@@ -87,7 +87,7 @@ export default function About() {
             className="space-y-6"
           >
             <p className="text-lg text-deep-navy/80 leading-relaxed">
-              I&apos;m a Dubai-based Property Consultant at Muhammad Afaq
+              I&apos;m a Dubai-based Property Consultant at Afaq Pukhtoon
               Estate, focused on matching clients to the right homes and
               investments. Backed by over 20 years of company excellence in the
               Dubai market, I deliver a systematic process: needs assessment →

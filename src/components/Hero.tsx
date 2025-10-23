@@ -84,7 +84,7 @@ export default function Hero() {
                 <div className="w-16 h-16 rounded-full border-2 border-pure-white shadow-lg overflow-hidden">
                   <Image
                     src="/assets/images/IMG_9669.JPG"
-                    alt="Muhammad Afaq - Dubai Property Expert"
+                    alt="Afaq Pukhtoon - Dubai Property Expert"
                     width={64}
                     height={64}
                     className="w-full h-full object-cover"
@@ -100,7 +100,7 @@ export default function Hero() {
                 <div className="flex items-center space-x-2">
                   <Star className="w-5 h-5 text-accent-gold fill-current" />
                   <span className="text-deep-navy font-semibold text-sm">
-                    Muhammad Afaq - Dubai Property Expert
+                    Afaq Pukhtoon - Dubai Property Expert
                   </span>
                 </div>
               </div>
@@ -128,7 +128,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-xl md:text-2xl text-elegant-purple leading-relaxed max-w-xl"
             >
-              Hi, I'm Muhammad Afaq. Transform your property dreams into reality
+              Hi, I'm Afaq Pukhtoon. Transform your property dreams into reality
               with my 5+ years of expertise, 80,000+ social media followers, and
               unparalleled Dubai market knowledge.
             </motion.p>
